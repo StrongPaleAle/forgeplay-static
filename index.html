@@ -4,11 +4,48 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+     
+      @font-face {
+          font-family: 'Sono';
+          src: url('./../assets/fonts/Sono.woff2') format('woff2 supports variations'),
+              url('./../assets/fonts/Sono.woff2') format('woff2-variations');
+          font-weight: 200 800;
+          font-style: normal;
+          font-display: swap;
+      }
+      @font-face {
+          font-family: 'JetBrains Mono';
+          src: url('./../assets/fonts/JetBrainsMono.woff2') format('woff2 supports variations'),
+              url('./../assets/fonts/JetBrainsMono.woff2') format('woff2-variations');
+          font-weight: 100 800;
+          font-style: normal;
+          font-display: swap;
+      }
+      @font-face {
+          font-family: 'Sono';
+          src: url('./../assets/fonts/JetBrainsMono-Italic.woff2') format('woff2 supports variations'),
+              url('./../assets/fonts/JetBrainsMono-Italic.woff2') format('woff2-variations');
+          font-weight: 100 800;
+          font-style: italic;
+          font-display: swap;
+      }
+      body {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .heading {
+        font-family: 'Sono', sans-serif;
+      }
+    </style>
     <title>Forgeplay studio</title>
   </head>
   <body>
     <section class="flex justify-center items-center h-screen bg-slate-800">
-      <h1 class="text-3xl text-white">Forgeplay</h1>
+      <div class="text-center">
+        <h1 class="heading text-5xl uppercase text-white font-bold">Forgeplay</h1>
+        <p class="mt-4 text-slate-200">This is a test</p>
+      </div>
+      
     </section>
     <script type="module" src="/main.js"></script>
   </body>

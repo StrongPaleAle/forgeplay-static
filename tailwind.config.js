@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html"
+    "./index.html",
+    "./partials/**/*.hbs",
   ],
   theme: {
     extend: {
@@ -52,6 +53,8 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
 

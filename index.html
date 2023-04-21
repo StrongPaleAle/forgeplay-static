@@ -49,19 +49,247 @@
     <title>Forgeplay studio</title>
   </head>
   <body>
-    <section class="flex justify-center items-center h-screen bg-abyss">
+    <header class="fixed top-0 left-0 w-full z-50">
+      <div class="container mx-auto">
+        <div class="flex justify-between items-center py-6">
+          <div class="w-16 p-4 bg-abyss">
+            {{> logo }}
+          </div>
+          <div class="menu bg-abyss p-4">
+            <ul class="flex gap-6">
+              <li><a href="#" class="text-white">Home</a></li>
+              <li><a href="#" class="text-white">Games</a></li>
+              <li><a href="#" class="text-white">About</a></li>
+              <li><a href="#" class="text-white">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="cover" class="py-40 px-6 flex justify-center items-center bg-abyss-800 lg:py-48">
       <div class="text-center">
-        <div class="logo mb-12">
+        <div class="logo mb-6 md:mb-8 lg:mb-10 xl:mb-12">
           {{> logo }}
         </div>
         <div class="logo-text">
           {{> forgeplay }}
         </div>
         <h1 class="sr-only">Forgeplay studio</h1>
-        <p class="mt-4 text-primary">This is a test</p>
+        
       </div>
-      
+      <div class="end-shadow"></div>
     </section>
+    <section id="games" class="p-6 pb-40 bg-abyss">
+      <div class="container mx-auto">
+        
+        <div class="flex flex-col gap-6 lg:flex-row pb-12">
+          <h2 class="section-title pb-2 heading text-5xl font-bold uppercase text-white border-primary border-b-2 lg:pl-2 lg:pl-0 lg:border-b-0 lg:border-l-2">Games</h2>
+          <p class="max-w-prose">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
+        </div>
+        
+        <div class="grid w-full gap-6 justify-center">
+          <div>
+            <div class="game-card">
+              <div class="game-card__image">
+                <img src="https://placekitten.com/640/420" alt="">
+              </div>
+              <div class="game-card__content text-center bg-abyss-800 p-6 pt-12 -mt-6">
+                <h3 class="text-2xl heading uppercase font-bold">Game title</h3>
+                <p class="text-primary italic">April 2023</p>
+                <div class="game-card__links" >
+                  <div class="flex justify-center gap-4 py-6">
+                    <a href="#" class="btn btn--primary">
+                      <span>Steam</span>
+                    </a>
+                    <a href="#" class="btn btn--secondary">
+                      <span>Itch.io</span>
+                      
+                    </a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="game-card">
+              <div class="game-card__image">
+                <img src="https://placekitten.com/640/420" alt="">
+              </div>
+              <div class="game-card__content text-center bg-abyss-800 p-6 pt-12 -mt-6">
+                <h3 class="text-2xl heading uppercase font-bold">Game title</h3>
+                <p class="text-primary italic">April 2023</p>
+                <div class="game-card__links" >
+                  <div class="flex justify-center gap-4 py-6">
+                    <a href="#" class="btn btn--primary">
+                      <span>Steam</span>
+                    </a>
+                    <a href="#" class="btn btn--secondary">
+                      <span>Itch.io</span>
+                      
+                    </a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="game-card">
+              <div class="game-card__image">
+                <img src="https://placekitten.com/640/420" alt="">
+              </div>
+              <div class="game-card__content text-center bg-abyss-800 p-6 pt-12 -mt-6">
+                <h3 class="text-2xl heading uppercase font-bold">Game title</h3>
+                <p class="text-primary italic">April 2023</p>
+                <div class="game-card__links" >
+                  <div class="flex justify-center gap-4 py-6">
+                    <a href="#" class="btn btn--primary">
+                      <span>Steam</span>
+                    </a>
+                    <a href="#" class="btn btn--secondary">
+                      <span>Itch.io</span>
+                      
+                    </a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    <section id="about" class="p-6 py-40 bg-abyss-800">
+      <div class="container mx-auto">
+        <div class="flex flex-col gap-12 lg:gap-24 lg:flex-row items-center">
+          <div class="about-image">
+            <div class="border-secondary border-8">
+              <img class="transform translate-x-4 translate-y-4" src="https://placekitten.com/640/360" alt="">
+            </div>
+            
+          </div>
+          <div class="flex flex-col gap-6 lg:flex-row pb-12">
+            <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pl-0 lg:border-b-0 lg:border-l-2">About</h2>
+            <p class="max-w-prose">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    <section id="contact"  class="p-6 py-40 bg-abyss">
+      <div class="container mx-auto">
+        <div class="flex flex-col gap-12 lg:gap-24 lg:flex-row items-start">
+          <div class="flex flex-col gap-6 lg:flex-row pb-12">
+            <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pl-0 lg:border-b-0 lg:border-l-2">Contact</h2>
+            <p class="max-w-prose">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
+          </div>
+          <div>
+            <form>
+              <div class="grid grid-cols-1 gap-6">
+                <label class="block">
+                  <span class="text-white">Name</span>
+                  <input type="text" class="
+                      mt-0
+                      bg-abyss-900
+                      block
+                      w-full
+                      px-0.5
+                      border-0 border-b-2 border-primary
+                      focus:ring-0 focus:border-secondary
+                      
+                    " placeholder="">
+                </label>
+                <label class="block">
+                  <span class="text-white">Email address</span>
+                  <input type="email" class="
+                      mt-0
+                      bg-abyss-900
+                      block
+                      w-full
+                      px-0.5
+                      border-0 border-b-2 border-primary
+                      focus:ring-0 focus:border-secondary
+                      
+                    " placeholder="john@example.com">
+                </label>
+                <label class="block">
+                  <span class="text-white">Object</span>
+                  <input type="text" class="
+                      mt-0
+                      bg-abyss-900
+                      block
+                      w-full
+                      px-0.5
+                      border-0 border-b-2 border-primary
+                      focus:ring-0 focus:border-secondary
+                      
+                    " placeholder="">
+                </label>
+                
+                <label class="block">
+                  <span class="text-white">Message</span>
+                  <textarea class="
+                      mt-0
+                      bg-abyss-900
+                      block
+                      w-full
+                      px-0.5
+                      border-0 border-b-2 border-primary
+                      focus:ring-0 focus:border-secondary
+                      
+                    " rows="2"></textarea>
+                </label>
+                <div class="block">
+                  <div class="mt-2">
+                    <div>
+                      <label class="inline-flex items-center">
+                        <input type="checkbox" class="
+                            border-primary border-2
+                            text-secondary
+                            focus:border-primare focus:ring-secondary
+                          ">
+                        <span class="ml-2">I have read and agree to forgeplay <a class="underline hover:text-primary" href="#">Privacy Policy</a></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="block text-right mt-10">
+                    <button class="btn btn--primary w-40 text-lg">
+                      <span>Send</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer" class="p-20 px-6 bg-abyss">
+      <div class="container mx-auto px-4 py-20 bg-abyss-800">
+        <div class="text-center text-white">
+          <div class="w-40 mb-6 mx-auto">
+            {{> logo }}
+          </div>
+          <div class="w-60 mx-auto">
+            {{> forgeplay }}
+          </div>
+          <h2 class="sr-only">Forgeplay studio</h2>
+          <nav class="my-12 text-center text-white">
+            <ul class="flex flex-col gap-6 lg:flex-row lg:gap-12 justify-center">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#games">Games</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+            <p>© 2023 Forgeplay Studio</p>
+          
+        </div>
+        
+      </div>
+    </footer>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

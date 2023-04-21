@@ -4,8 +4,56 @@
 :root{
     --color-primary: hsl(51, 98%, 50%);
     --color-secondary: hsl(2, 56%, 50%);
+    --color-abyss: hsl(209, 54%, 10%);
+    --color-shadow: hsl(209, 54%, 5%);
 
 }
+html{
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+#cover{
+    background-image: url('/assets/images/cover.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: soft-light;
+    position: relative;
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        @apply h-36 bg-abyss;
+        clip-path: polygon(0 0, 10% 50%, 90% 50%, 100% 0, 100% 100%, 0 100%);
+    }
+}
+.end-shadow{
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    width: 100%;
+    @apply h-36 bg-secondary-700;
+    clip-path: polygon(0 0, calc(10% + 0.5rem) 50%, calc(90% - 0.5rem) 50%, 100% 0, 100% 100%, 0 100%);
+    &:before, &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: calc(10% + 0.5rem);
+        height: 100%;
+        @apply bg-secondary-600;
+        clip-path: polygon(0 0, 100% 50%, calc(100% - 0.5rem) calc(50% + 0.5rem), 100% 100%, 0 100%);
+    }
+    &:after{
+        left: auto;
+        right: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0.5rem 100%, 0.5rem calc(50% + 0.5rem), 0 50%);
+    }
+}
+
 .logo, .logo-text{
     svg{
         width: 100%;
@@ -15,6 +63,122 @@
     height: 12vw;
     max-width: 70rem;
     width: 100%;
-    filter : drop-shadow(0.125rem 0.125rem 0  var(--color-primary)) drop-shadow(-0.125rem -0.125rem 0  var(--color-secondary));
+    filter: drop-shadow(0 0 0.5rem var(--color-abyss));
+    //filter : drop-shadow(0.125rem 0.125rem 0  var(--color-primary)) drop-shadow(-0.125rem -0.125rem 0  var(--color-secondary));
 }
-
+.logo{
+    min-height: 8rem;
+}
+.btn{
+    @apply inline-block relative;
+    
+    isolation: isolate;
+    span{
+        @apply block px-4 py-2   relative z-10;
+        transition: transform 0.3s ease-in-out;
+        transform: translate(0);
+    }
+    &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        @apply bg-abyss;
+        z-index: -1;
+        transform: translate(0.25rem, 0.25rem);
+        transition: transform 0.3s ease-in-out;
+    }
+    &:hover{
+        span{
+            transform: translate(0.25rem, 0.25rem);
+            --tw-bg-opacity: 0.9;
+        }
+        
+        
+    }
+    &--primary{
+        span{
+            @apply bg-primary-500 text-abyss;
+        }
+       
+    }
+    &--abyss{
+        span{
+            @apply bg-abyss-800 text-white;
+        }
+       
+    }
+    &--secondary{
+        span{
+            @apply bg-secondary-500 text-white;
+        }
+        
+        
+    }
+}
+.section-title{
+    @media (min-width: 1024px){
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+    }
+    
+}
+#games{
+    .grid{
+        grid-template-columns: repeat(auto-fit, 320px);
+    }
+}
+.game-card{
+    @apply max-w-xs rounded-lg overflow-hidden;
+    filter: drop-shadow(0.25rem 0.25rem 0 var(--color-shadow));
+    &__image{
+        width: calc(100% - 2rem);
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0.25rem 0.25rem 0 var(--color-shadow));
+        img{
+            transition: transform 0.3s ease-in-out;
+        }
+        
+    }
+    &__content{
+        
+    }
+    &__links{
+        isolation: isolate;
+        max-height: 0;
+        transition: max-height 0.2s ease-in-out;
+        overflow: hidden;
+        > * {
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.2s ease-in-out;
+        }
+    }
+    &:hover{
+        .game-card__image{
+            img{
+                transform: scale(1.1);
+            }
+            
+        }
+        .game-card__links{
+            max-height: 100px;
+            transition: max-height 0.2s ease-in-out;
+            > * {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.3s ease-in-out;
+        }
+        }
+        
+    }
+}
+.about-image{
+    img{
+        filter: drop-shadow(0.25rem 0.25rem 0 var(--color-abyss));
+    }
+}

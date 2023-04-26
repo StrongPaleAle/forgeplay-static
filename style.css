@@ -73,7 +73,7 @@ html{
     @apply inline-block relative;
     
     isolation: isolate;
-    span{
+    span:not(.sr-only){
         @apply block px-4 py-2   relative z-10;
         transition: transform 0.3s ease-in-out;
         transform: translate(0);
@@ -115,6 +115,17 @@ html{
         
         
     }
+    &--shadow{
+        &:before{
+            @apply bg-abyss-950
+        }
+    }
+    &--icon{
+        span:not(.sr-only){
+            @apply px-2;
+           
+        }
+    }
 }
 .section-title{
     @media (min-width: 1024px){
@@ -125,12 +136,12 @@ html{
     
 }
 #games{
-    .grid{
+    .games-grid{
         grid-template-columns: repeat(auto-fit, 320px);
     }
 }
 .game-card{
-    @apply max-w-xs rounded-lg overflow-hidden;
+    @apply max-w-xs relative;
     filter: drop-shadow(0.25rem 0.25rem 0 var(--color-shadow));
     &__image{
         width: calc(100% - 2rem);
@@ -145,8 +156,10 @@ html{
         
     }
     &__content{
-        
+        @apply w-full absolute top-full left-0 rounded-b-lg;
+       
     }
+    
     &__links{
         isolation: isolate;
         max-height: 0;
@@ -176,9 +189,67 @@ html{
         }
         
     }
+    &.unavailable{
+        filter: grayscale(0.5);
+        .game-card__image{
+            
+            img{
+                opacity: 0.5;
+            }
+        }
+        h3{
+            opacity: 0.75;
+        }
+    }
 }
 .about-image{
     img{
         filter: drop-shadow(0.25rem 0.25rem 0 var(--color-abyss));
+    }
+}
+.dialog{
+    @apply fixed inset-0 z-50 flex items-center justify-center isolate;
+
+    &:not(.open){
+        display: none;
+    }
+
+    &__backdrop{
+        @apply absolute inset-0 bg-abyss-900 opacity-75 -z-10;
+    }
+    .grid{
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    &__content{
+        @apply bg-abyss rounded-lg shadow-lg p-4 relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        width: 100%;
+        overflow: auto;
+        padding: clamp(0.5rem, 5vw, 3.5rem);
+    }
+    &__close{
+        @apply absolute top-0 right-0 p-4;
+    }
+    &__title{
+        @apply text-2xl uppercase font-bold mb-4 lg:text-5xl text-primary;
+    }
+    &__info{
+        @apply text-lg mb-4 grid gap-2;
+        &-label{
+            @apply font-bold text-primary;
+        }
+    }
+    &__gallery{
+        img{
+            max-height: 75vh;
+        }
+        
+    }
+    &__body{
+        @apply max-w-prose;
+    }
+    &__footer{
+        @apply flex  mt-6 gap-4;
     }
 }

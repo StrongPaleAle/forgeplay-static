@@ -42,9 +42,9 @@
       body {
         font-family: 'JetBrains Mono', monospace;
       }
-      .heading {
+      /* .heading {
         font-family: 'Sono', sans-serif;
-      }
+      } */
     </style>
     <title>Forgeplay studio</title>
   </head>
@@ -83,18 +83,18 @@
       <div class="container mx-auto">
         
         <div class="flex flex-col gap-6 lg:flex-row pb-12">
-          <h2 class="section-title pb-2 heading text-5xl font-bold uppercase text-white border-primary border-b-2 lg:pl-2 lg:pl-0 lg:border-b-0 lg:border-l-2">Games</h2>
+          <h2 class="section-title pb-2 heading text-5xl font-bold uppercase text-white border-primary border-b-2 lg:pl-2 lg:pb-0 lg:border-b-0 lg:border-l-2">Games</h2>
           <p class="max-w-prose">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
         </div>
         
-        <div class="grid w-full gap-6 justify-center">
-          <div>
-            <div class="game-card">
-              <div class="game-card__image">
+        <div class="games-grid grid w-full gap-6 justify-center">
+          <div class="game-wrapper pb-32">
+            <div class="game-card" data-dialog="game-1">
+              <div class="game-card__image dialog-open">
                 <img src="https://placekitten.com/640/420" alt="">
               </div>
               <div class="game-card__content text-center bg-abyss-800 p-6 pt-12 -mt-6">
-                <h3 class="text-2xl heading uppercase font-bold">Game title</h3>
+                <h3 class="text-2xl heading uppercase font-bold"><button class="dialog-open">Game title</button></h3>
                 <p class="text-primary italic">April 2023</p>
                 <div class="game-card__links" >
                   <div class="flex justify-center gap-4 py-6">
@@ -111,15 +111,15 @@
               </div>
             </div>
           </div>
-          <div>
-            <div class="game-card">
+          <div class="game-wrapper pb-32">
+            <div class="game-card unavailable">
               <div class="game-card__image">
                 <img src="https://placekitten.com/640/420" alt="">
               </div>
               <div class="game-card__content text-center bg-abyss-800 p-6 pt-12 -mt-6">
                 <h3 class="text-2xl heading uppercase font-bold">Game title</h3>
-                <p class="text-primary italic">April 2023</p>
-                <div class="game-card__links" >
+                <p class="text-primary italic">Coming 2023</p>
+                <!-- <div class="game-card__links" >
                   <div class="flex justify-center gap-4 py-6">
                     <a href="#" class="btn btn--primary">
                       <span>Steam</span>
@@ -130,27 +130,24 @@
                     </a>
                   </div>
                   
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
-          <div>
-            <div class="game-card">
+          <div class="game-wrapper pb-32">
+            <div class="game-card unavailable">
               <div class="game-card__image">
                 <img src="https://placekitten.com/640/420" alt="">
               </div>
               <div class="game-card__content text-center bg-abyss-800 p-6 pt-12 -mt-6">
                 <h3 class="text-2xl heading uppercase font-bold">Game title</h3>
-                <p class="text-primary italic">April 2023</p>
+                <p class="text-primary italic">Coming 2023</p>
                 <div class="game-card__links" >
                   <div class="flex justify-center gap-4 py-6">
                     <a href="#" class="btn btn--primary">
-                      <span>Steam</span>
+                      <span>Wishlist</span>
                     </a>
-                    <a href="#" class="btn btn--secondary">
-                      <span>Itch.io</span>
-                      
-                    </a>
+                    
                   </div>
                   
                 </div>
@@ -160,6 +157,7 @@
         </div>
         
       </div>
+      {{> game_dialog}}
     </section>
     <section id="about" class="p-6 py-40 bg-abyss-800">
       <div class="container mx-auto">
@@ -171,7 +169,7 @@
             
           </div>
           <div class="flex flex-col gap-6 lg:flex-row pb-12">
-            <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pl-0 lg:border-b-0 lg:border-l-2">About</h2>
+            <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pb-0 lg:border-b-0 lg:border-l-2">About</h2>
             <p class="max-w-prose">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
           </div>
         </div>
@@ -182,7 +180,7 @@
       <div class="container mx-auto">
         <div class="flex flex-col gap-12 lg:gap-24 lg:flex-row items-start">
           <div class="flex flex-col gap-6 lg:flex-row pb-12">
-            <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pl-0 lg:border-b-0 lg:border-l-2">Contact</h2>
+            <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pb-0 lg:border-b-0 lg:border-l-2">Contact</h2>
             <p class="max-w-prose">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
           </div>
           <div>
@@ -269,12 +267,15 @@
     <footer id="footer" class="p-20 px-6 bg-abyss">
       <div class="container mx-auto px-4 py-20 bg-abyss-800">
         <div class="text-center text-white">
-          <div class="w-40 mb-6 mx-auto">
-            {{> logo }}
+          <div class="flex justify-center items-center gap-3">
+            <div class="w-10">
+              {{> logo }}
+            </div>
+            <div class="w-80">
+              {{> forgeplay }}
+            </div>
           </div>
-          <div class="w-60 mx-auto">
-            {{> forgeplay }}
-          </div>
+          
           <h2 class="sr-only">Forgeplay studio</h2>
           <nav class="my-12 text-center text-white">
             <ul class="flex flex-col gap-6 lg:flex-row lg:gap-12 justify-center">

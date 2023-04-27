@@ -17,5 +17,8 @@
     "tailwindcss": "^3.3.1",
     "vite": "^4.2.0",
     "vite-plugin-handlebars": "^1.6.0"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4"
   }
 }

@@ -1,5 +1,6 @@
+import '@splidejs/splide/css'
 import './style.css';
-
+import Splide from '@splidejs/splide';
 
 const dialogTriggers = document.querySelectorAll('[data-dialog]');
 
@@ -26,3 +27,14 @@ dialogTriggers.forEach(triggerWrapper => {
     });
     
 });
+
+var elms = document.getElementsByClassName( 'splide' );
+
+for ( var i = 0; i < elms.length; i++ ) {
+    console.log('activate' + elms[i]);
+  new Splide( elms[ i ], {
+    type     : 'loop',
+    focus    : 'center',
+    autoWidth: true,
+  }  ).mount();
+}

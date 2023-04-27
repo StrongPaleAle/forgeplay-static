@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root{
     --color-primary: hsl(51, 98%, 50%);
     --color-secondary: hsl(2, 56%, 50%);
@@ -251,5 +252,25 @@ html{
     }
     &__footer{
         @apply flex  mt-6 gap-4;
+    }
+}
+.splide{
+    &.is-active{
+        
+        .splide__slide{
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+            &:not(.is-active){
+                @apply opacity-30;
+            }
+        }
+    }
+    .splide__arrow {
+        @apply bg-abyss border-primary border-2 rounded-full w-12 h-12;
+        border: 2px solid var(--color-primary);
+        svg {
+            fill: var(--color-primary);
+            
+        }
     }
 }

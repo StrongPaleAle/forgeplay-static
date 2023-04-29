@@ -1,6 +1,6 @@
 export function formHandle(formid){
     const form = document.getElementById(formid);
-    console.log(form);
+    //console.log(form);
     const acceptance = form.querySelector('input#form_acceptance');
     const submit = form.querySelector('button[type="submit"]');
 
@@ -30,29 +30,29 @@ export function formHandle(formid){
             message: form.form_message.value,
             time: performance.now() 
         }
-        //postData(formattedFormData);
-        console.log(formattedFormData);
+        postData(formattedFormData);
+       console.log(formattedFormData);
     });
 
-    // async function postData(formattedFormData){
-    //     /**
-    //      * The request is still 'POST' but the $_GET variable
-    //      * will get values too: 'name' and 'favorite_color'
-    //      */
-    //     const response = await fetch(
-    //         'handle_form.php',
-    //         {
-    //             method: 'POST',
-    //             /*
-    //             * We also need to stringify the values, turn the
-    //             * JavaScript object to a single string that is accepted
-    //             * as JSON. So we are sending one string that contains
-    //             * all our values
-    //             */
-    //             body: JSON.stringify(formattedFormData)
-    //         }
-    //     );
-    //     const data = await response.text();
-    //     console.log(data);
-    // }
+    async function postData(formattedFormData){
+        /**
+         * The request is still 'POST' but the $_GET variable
+         * will get values too: 'name' and 'favorite_color'
+         */
+        const response = await fetch(
+            'handle_form.php',
+            {
+                method: 'POST',
+                /*
+                * We also need to stringify the values, turn the
+                * JavaScript object to a single string that is accepted
+                * as JSON. So we are sending one string that contains
+                * all our values
+                */
+                body: JSON.stringify(formattedFormData)
+            }
+        );
+        const data = await response.text();
+        console.log(data);
+    }
 }

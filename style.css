@@ -305,7 +305,7 @@ html{
     }
 }
 #contact-form{
-    .block[for="form-nickname"]{
+    .block[for="form_nickname"]{
         display: none;
     }
 }

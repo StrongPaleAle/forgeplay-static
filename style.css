@@ -308,4 +308,13 @@ html{
     .block[for="form_nickname"]{
         display: none;
     }
+    .feedback-box{
+        @apply p-6 border-2;
+        &.success{
+            @apply border-green-300 bg-green-950 text-green-300;
+        }
+        &.error{
+            @apply border-red-500 bg-red-950 text-red-500;
+        }
+    }
 }

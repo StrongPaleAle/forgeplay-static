@@ -31,7 +31,7 @@ export function formHandle(formid){
             time: performance.now() 
         }
         postData(formattedFormData);
-       console.log(formattedFormData);
+       //console.log(formattedFormData);
     });
 
     async function postData(formattedFormData){
@@ -52,7 +52,28 @@ export function formHandle(formid){
                 body: JSON.stringify(formattedFormData)
             }
         );
-        const data = await response.text();
+        const data = await response.json();
         console.log(data);
+        let formResult = document.getElementById('form_feedback');
+        formResult.innerHTML = '';
+
+        let formFeedback = document.getElementById('form_feedback_template').content.cloneNode(true);
+        let feedbackBox = formFeedback.querySelector('.feedback-box');
+        
+        formFeedback.querySelector('.form_feedback_message').innerHTML = data.message;
+        if (data.success) {
+            feedbackBox.classList.add('success');
+        } else {
+            feedbackBox.classList.add('error');
+            let list = document.getElementById('error-list').content.cloneNode(true);
+            data.errors.forEach(error => {
+                let listItem = document.createElement('li');
+                listItem.innerHTML = error;
+                list.appendChild(listItem);
+            });
+            feedbackBox.appendChild(list);
+        }
+
+        formResult.appendChild(formFeedback);
     }
 }

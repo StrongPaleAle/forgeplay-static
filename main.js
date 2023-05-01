@@ -91,3 +91,24 @@ function mountDialogGallery(parent){
         
     }
 }
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+const menuLinks = document.querySelectorAll('.menu__link');
+const logoNav = document.querySelector('.logo-nav');
+menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    menuToggle.classList.toggle('active');
+    logoNav.classList.toggle('active');
+});
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        console.log('click');
+        menu.classList.remove('open');
+        menuToggle.classList.remove('active');
+        logoNav.classList.remove('active');
+        const current = document.querySelector('.menu__link.current');
+        
+        current ? current.classList.remove('current') : null;
+        link.classList.add('current');
+    });
+});

@@ -53,21 +53,23 @@
     <header class="fixed top-0 left-0 w-full z-50">
       <div class="container mx-auto">
         <div class="flex justify-between items-center md:py-6 isolate">
-          <div class="w-16 p-4 bg-abyss relative z-20">
-            {{> logo }}
+          <div class="logo-nav cube cube-lb z-20">
+            <a href="#cover">
+              <span  class="sr-only focus:not-sr-only">Forgeplay Home</span>
+              {{> logo }}
+            </a>
+            
           </div>
-          <button class="menu-toggle md:hidden z-20">
-            <span class="sr-only">Toggle menu</span>
+          <button class="menu-toggle cube cube-rb md:hidden z-20" aria-hidden="true">
             <span class="menu-toggle__bar"></span>
             <span class="menu-toggle__bar"></span>
             <span class="menu-toggle__bar"></span>
           </button>
-          <nav class="menu fixed top-0 left-0 w-full h-full md:w-auto md:h-auto bg-abyss p-4 md:relative z-10" role="navigation">
-            <ul class="flex flex-col justify-center h-full items-end text-xl md:flex-row gap-6">
-              <li><a href="#cover" class="text-white">Home</a></li>
-              <li><a href="#games" class="text-white">Games</a></li>
-              <li><a href="#about" class="text-white">About</a></li>
-              <li><a href="#contact" class="text-white">Contact</a></li>
+          <nav class="menu cube cube-rb" role="navigation">
+            <ul class="flex flex-col justify-center h-full items-end text-2xl md:text-lg md:flex-row">
+              <li class="menu__item"><a href="#games" class="menu__link">Games</a></li>
+              <li class="menu__item"><a href="#about" class="menu__link">About</a></li>
+              <li class="menu__item"><a href="#contact" class="menu__link">Contact</a></li>
             </ul>
           </nav>
         </div>

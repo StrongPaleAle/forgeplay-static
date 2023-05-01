@@ -16,7 +16,107 @@ html{
 :focus-visible{
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
-}   
+}
+.cube{
+    --slant: 0.5rem;
+    @apply relative;
+    &:before, &:after{
+        content: '';
+        position: absolute;
+       
+    }
+    &:before{
+        width:calc(100% + var(--slant));
+        @apply h-2 bg-secondary-800;
+    }
+    &:after{
+        height: calc(100% + var(--slant));
+        @apply w-2 bg-secondary-900;
+    }
+    &-rb{
+    
+        &:before{
+            top: 100%;
+            left: 0;
+            clip-path: polygon(0 0, calc(100% - var(--slant) ) 0, 100% 100%, var(--slant) 100% );
+        }
+        &:after{
+            top: 0;
+            left: 100%;
+            clip-path: polygon(0 0, 100% var(--slant), 100% 100%, 0 calc(100% - var(--slant)));
+        }
+    }
+    &-lb{
+    
+    &:before{
+        top: 100%;
+        right: 0;
+        clip-path: polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100% );
+    }
+    &:after{
+        top: 0;
+        right: 100%;
+        clip-path: polygon(0 var(--slant), 100% 0, 100% calc(100% - var(--slant)), 0 100%);
+    }
+}
+}
+.logo-nav{
+    @apply fixed top-4 left-3 md:top-0 md:left-0 md:w-16 md:h-16 md:px-3 flex justify-between items-center z-20 bg-abyss-800 opacity-0 md:opacity-100 md:relative;
+    transition: opacity 0.2s ease-in-out;
+    a{
+        @apply block w-8;
+        
+    }
+    &.active{
+        @apply opacity-100;
+    }
+    @media (max-width: 767.999px){
+        &:before, &:after{
+            content: none !important;
+        }
+    }
+}
+
+.menu-toggle {
+    @apply fixed top-0 right-2 z-20 py-4 w-12 h-12 flex flex-col justify-between items-center bg-abyss-800 md:hidden;
+    span{
+        @apply block w-6 h-0.5 bg-white;
+        transition: transform 0.2s ease-in-out;
+        transform-origin: center;
+    }
+    &.active{
+        @apply bg-secondary-700;
+        span{
+            &:nth-child(1){
+                transform: translateY(0.4375rem) rotate(-45deg);
+            }
+            &:nth-child(2){
+                transform: scaleX(0);
+                
+            }
+            &:nth-child(3){
+                transform: translateY(-0.43725rem) rotate(45deg);
+            }
+        }
+    }
+}
+.menu{
+    
+    @apply fixed top-0 left-0 w-full h-full md:w-auto md:h-auto bg-abyss-800 md:bg-transparent md:relative z-10 translate-x-full md:translate-x-0;
+    transition: transform 0.2s ease-in-out;
+    &.open{
+        transform: translateX(0);
+    }
+    &__link{
+        @apply block p-6 md:py-3 md:px-5 bg-abyss-800;
+        transform: translate(0, 0);
+        transition: all 0.2s ease-in-out;
+        &.current{
+            @apply bg-abyss-900;
+            transform: translate(var(--slant), var(--slant));
+        }
+    }
+}
 #cover{
     background-image: url('/assets/images/cover.jpg');
     background-size: cover;

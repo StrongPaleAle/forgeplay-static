@@ -52,10 +52,10 @@
     <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
     {{> header }}
     <main id="main">
-      <section id="cover" class="py-40 px-6 flex justify-center items-center bg-abyss-800 lg:py-48">
+      <section id="home" class="menu-section py-40 px-6 flex justify-center items-center bg-abyss-800 lg:py-48">
         <div class="text-center">
           <div class="logo mb-6 md:mb-8 lg:mb-10 xl:mb-12">
-            {{> logo }}
+            {{> logoCover }}
           </div>
           <div class="logo-text">
             {{> forgeplay }}
@@ -65,7 +65,7 @@
         </div>
         <div class="end-shadow" aria-hidden="true"></div>
       </section>
-      <section id="games" class="p-6 pb-40 bg-abyss">
+      <section id="games" class="menu-section p-6 pb-40 bg-abyss">
         <div class="container mx-auto">
           
           <div class="flex flex-col gap-6 lg:flex-row pb-12">
@@ -145,7 +145,7 @@
         </div>
         {{> game_dialog}}
       </section>
-      <section id="about" class="p-6 py-40 bg-abyss-800">
+      <section id="about" class="menu-section p-6 py-40 bg-abyss-800">
         <div class="container mx-auto">
           <div class="flex flex-col gap-12 lg:gap-24 lg:flex-row items-center">
             <div class="about-image">
@@ -156,21 +156,21 @@
             </div>
             <div class="flex flex-col gap-6 lg:flex-row pb-12">
               <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pb-0 lg:border-b-0 lg:border-l-2">About</h2>
-              <p class="max-w-prose">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
+              <p class="max-w-prose pop-in">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
             </div>
           </div>
           
         </div>
       </section>
-      <section id="contact"  class="p-6 py-40 bg-abyss">
+      <section id="contact"  class="menu-section p-6 py-40 bg-abyss">
         <div class="container mx-auto">
           <div class="flex flex-col gap-12 lg:gap-24 lg:flex-row items-start">
             <div class="flex flex-col gap-6 lg:flex-row pb-12">
               <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pb-0 lg:border-b-0 lg:border-l-2">Contact</h2>
-              <p class="max-w-prose">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
+              <p class="max-w-prose pop-in">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est labore quod odio cumque molestias nemo quae veniam incidunt, cum iure facere modi minus magnam fugiat suscipit libero assumenda vero quos.</p>
             </div>
             <div>
-              <form id="contact-form" aria-labelledby="form-title">
+              <form id="contact-form" class="forge-in" aria-labelledby="form-title">
                 <div class="grid grid-cols-1 gap-6">
                   <h3 id="form-title" class="text-2xl heading uppercase font-bold">Contact us</h3>
                   <label class="block" for="form_name">

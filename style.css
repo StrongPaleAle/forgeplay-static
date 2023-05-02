@@ -7,7 +7,7 @@
     --color-secondary: hsl(2, 56%, 50%);
     --color-abyss: hsl(209, 54%, 10%);
     --color-shadow: hsl(209, 54%, 5%);
-
+    --slant: 0.5rem;
 }
 html{
     scroll-behavior: smooth;
@@ -27,11 +27,13 @@ html{
     }
     &:before{
         width:calc(100% + var(--slant));
-        @apply h-2 bg-secondary-800;
+        height: var(--slant);
+        @apply bg-secondary-800;
     }
     &:after{
         height: calc(100% + var(--slant));
-        @apply w-2 bg-secondary-900;
+        width: var(--slant);
+        @apply bg-secondary-900;
     }
     &-rb{
     
@@ -48,23 +50,95 @@ html{
     }
     &-lb{
     
-    &:before{
-        top: 100%;
-        right: 0;
-        clip-path: polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100% );
+        &:before{
+            top: 100%;
+            right: 0;
+            clip-path: polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100% );
+        }
+        &:after{
+            top: 0;
+            right: 100%;
+            clip-path: polygon(0 var(--slant), 100% 0, 100% calc(100% - var(--slant)), 0 100%);
+        }
     }
-    &:after{
-        top: 0;
-        right: 100%;
-        clip-path: polygon(0 var(--slant), 100% 0, 100% calc(100% - var(--slant)), 0 100%);
+    &-lt{
+    
+        &:before{
+            width:100%;
+            top: 0;
+            left: 0;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, var(--slant) 100%);
+        }
+        &:after{
+            height: 100%;
+            top: 0;
+            left: 0;
+            clip-path: polygon(0 0, 100% var(--slant), 100% 100%, 0 100% );
+        }
     }
-}
 }
 .logo-nav{
-    @apply fixed top-4 left-3 md:top-0 md:left-0 md:w-16 md:h-16 md:px-3 flex justify-between items-center z-20 bg-abyss-800 opacity-0 md:opacity-100 md:relative;
+    @apply fixed top-4 left-3 md:top-0 md:left-0  z-20 opacity-0 md:opacity-100 md:relative;
+    overflow: hidden;
     transition: opacity 0.2s ease-in-out;
+    @media (min-width: 768px){
+        padding-bottom: var(--slant);
+        padding-left: var(--slant);
+    }
     a{
-        @apply block w-8;
+        z-index: 1;
+        @apply  absolute md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-abyss-800 inline-block isolate relative;
+        transform: translate(0, 0);
+        transition: all 0.2s ease-in-out;
+        
+        @media (min-width: 768px){
+            @apply  cube cube-lb;
+        }
+        .inner{
+            @apply absolute md:bg-abyss-800;
+            inset: -0.5px;
+        }
+        .logo-placeholder, .logo-shadow{
+            @apply absolute inset-0 md:px-3 flex md:justify-center items-center;
+            z-index: 1;
+        }
+        .logo-placeholder{
+                &:before{
+                content: '';
+                position: absolute;
+                inset: 0;
+                opacity: 0;
+                @apply bg-abyss-950;
+                z-index: -1;
+            }
+        }
+        .logo-shadow{
+            @apply  text-primary opacity-0;
+            z-index: 2;
+            transition: opacity 0.2s ease-in-out;
+            svg{
+                filter: drop-shadow(0 0 0.125rem var(--color-primary)) blur(4px);
+            }
+            
+        }
+        &.current{
+            .logo-placeholder:before{
+                @apply opacity-100;
+            }
+            transform: translate(calc(-1 * var(--slant)), calc(var(--slant)));
+            .logo-shadow{
+                @apply opacity-70;
+            }
+        }
+        &:hover{
+            .logo-placeholder:before{
+                @apply opacity-50;
+            }
+            transform: translate(calc(-1 * var(--slant) / 2), calc(var(--slant) / 2));
+            .logo-shadow{
+                @apply opacity-30;
+            }
+        }
         
     }
     &.active{
@@ -101,30 +175,89 @@ html{
     }
 }
 .menu{
-    
-    @apply fixed top-0 left-0 w-full h-full md:w-auto md:h-auto bg-abyss-800 md:bg-transparent md:relative z-10 translate-x-full md:translate-x-0;
+   
+    @apply fixed top-0 left-0 w-full h-full md:w-auto md:h-auto bg-abyss-900 bg-opacity-80 md:bg-transparent md:relative z-10 translate-x-full md:translate-x-0;
     transition: transform 0.2s ease-in-out;
+    ul{
+        overflow: hidden;
+        @media (min-width: 768px){
+            padding-bottom: var(--slant);
+            padding-right: var(--slant);
+            margin-right: calc(-1 * var(--slant));
+        }
+        
+    }
+
     &.open{
         transform: translateX(0);
     }
+    &__item{
+        
+        @media (max-width: 767.999px){
+            @apply  cube cube-lt bg-abyss-950;
+            &:before, &:after{
+               z-index: 0;
+            }
+        }
+    }
     &__link{
-        @apply  bg-abyss-800 inline-block;
+        z-index: 1;
+        @apply  bg-abyss-800 inline-block isolate relative;
         transform: translate(0, 0);
         transition: all 0.2s ease-in-out;
-        @apply  cube cube-rb;
+        
+        @media (min-width: 768px){
+            @apply  cube cube-rb;
+        }
+        
         span{
-            @apply block p-6 md:py-3 md:px-5 bg-abyss-950 bg-opacity-0;
+            @apply block py-6 px-8 md:py-3 md:px-5 bg-abyss-800 relative;
+            transition: translate 0.2s ease-in-out;
+            &:before{
+                content: attr(data-content);
+                @apply absolute inset-0 flex justify-center items-center text-primary-400 blur-sm;
+                text-shadow: 0 0 0.75rem var(--color-primary);
+                opacity: 0;
+                z-index: 1;
+                transition: opacity 0.2s ease-in-out;
+            }
+            &:after{
+                content: attr(data-content);
+                @apply absolute inset-0 bg-abyss-950 flex justify-center items-center;
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+                z-index: 0;
+            }
+        }
+        &:hover{
+            transform: translate(calc(var(--slant) / 2), calc(var(--slant) / 2));
+            span{
+                
+                &:before{
+                    opacity: 0.5;
+                }
+                &:after{
+                    opacity: 0.5;
+                }
+
+            }
         }
         &.current{
             
             transform: translate(var(--slant), var(--slant));
             span{
                 @apply bg-opacity-100;
+                &:before{
+                    opacity: 1;
+                }
+                &:after{
+                    opacity: 1;
+                }
             }
         }
     }
 }
-#cover{
+#home{
     background-image: url('/assets/images/cover.jpg');
     background-size: cover;
     background-position: center;
@@ -147,7 +280,7 @@ html{
     bottom: 0.5rem;
     left: 0;
     width: 100%;
-    @apply h-36 bg-secondary-700;
+    @apply h-36 bg-secondary-900;
     clip-path: polygon(0 0, calc(10% + 0.5rem) 50%, calc(90% - 0.5rem) 50%, 100% 0, 100% 100%, 0 100%);
     &:before, &:after{
         content: '';
@@ -156,7 +289,7 @@ html{
         left: 0;
         width: calc(10% + 0.5rem);
         height: 100%;
-        @apply bg-secondary-600;
+        @apply bg-secondary-800;
         clip-path: polygon(0 0, 100% 50%, calc(100% - 0.5rem) calc(50% + 0.5rem), 100% 100%, 0 100%);
     }
     &:after{
@@ -179,7 +312,8 @@ html{
     //filter : drop-shadow(0.125rem 0.125rem 0  var(--color-primary)) drop-shadow(-0.125rem -0.125rem 0  var(--color-secondary));
 }
 .logo{
-    min-height: 8rem;
+    min-height: 12rem;
+    
 }
 .btn{
     @apply inline-block relative;
@@ -255,6 +389,22 @@ html{
     .games-grid{
         grid-template-columns: repeat(auto-fit, 320px);
     }
+    .game-wrapper {
+        opacity: 0;
+        
+    }
+    &.on-screen{
+        .game-wrapper {
+            animation: forgeplay 0.5s ease-in-out forwards;
+            &:nth-child(2){
+                animation-delay: 0.2s;
+            }
+            &:nth-child(3){
+                animation-delay: 0.4s;
+            }
+        }
+
+    }
 }
 .game-card{
     @apply max-w-xs relative;
@@ -321,6 +471,17 @@ html{
 .about-image{
     img{
         filter: drop-shadow(0.25rem 0.25rem 0 var(--color-abyss));
+    }
+}
+#about{
+    .about-image img{
+        opacity: 0;
+    }
+    &.on-screen{
+        .about-image img{
+            animation: image 0.5s ease-in-out forwards;
+        }
+
     }
 }
 .dialog{
@@ -423,5 +584,148 @@ html{
         &.error{
             @apply border-red-500 bg-red-950 text-red-500;
         }
+    }
+}
+#home{
+    .logo{
+        svg{
+            transform:scale(1.5);
+            .logo-g{
+                .pad{
+                    transform-origin: center;
+                    transform:rotate(-7deg);
+                    animation: pad 0.2s ease-in 0.7s;
+                    animation-fill-mode: forwards;
+                }
+                .hammer{
+                    transform-origin: right top;
+                    transform:rotate(7deg);
+                    opacity:0;
+                    animation: hammer 0.3s ease-in 0.5s;
+                    animation-fill-mode: forwards;
+                }
+                .left-bolt{
+                    transform-origin: center;
+                    transform: scale(0);
+                    animation: bolt 0.3s ease-in 0.7s;
+                    animation-fill-mode: forwards;
+                }
+                .right-bolt{
+                    transform-origin: center;
+                    transform: scale(0);
+                    animation: bolt 0.3s ease-in 0.7s;
+                    animation-fill-mode: forwards;
+                }
+            }
+        }
+        
+    }
+    .logo-text{
+        opacity: 0;
+        animation: forgeplay 0.3s ease-in 1s;
+        animation-fill-mode: forwards;
+    }
+    
+    
+}
+.pop-in, .forge-in{
+    opacity: 0;
+}
+.on-screen{
+    .pop-in{
+    
+        animation: pop 0.3s ease-in 0.5s;
+        animation-fill-mode: forwards;
+    }
+    .forge-in{
+        animation: forgeplay 0.3s ease-in 0.5s;
+        animation-fill-mode: forwards;
+    }
+}
+@keyframes pop {
+    0% {
+        opacity: 0;
+        scale: 0.5;
+    }
+    75% {
+        opacity: 1;
+        scale: 1.1;
+    }
+    100% {
+        opacity: 0.7;
+        scale: 1;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+@keyframes image {
+    0% {
+        transform: translate(1rem, 50%);
+        opacity: 0;
+    }
+    75% {
+        transform: translate(1rem, -10%);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(1rem, 1rem);
+        opacity: 1;
+    }
+}
+@keyframes forgeplay {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    75% {
+        transform: translateY(-10%);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes hammer {
+    0% {
+        opacity:0;
+        
+    }
+    20%{
+        opacity:1;
+    }
+    90% {
+        transform: rotate(-2deg);
+    }
+    100% {
+        opacity:1;
+        transform: rotate(0deg);
+    }
+}
+@keyframes pad {
+    
+    0% {
+        transform: rotate(-7deg) scale(1);
+    }
+    40% {
+        transform: rotate(15deg) scale(0.9);
+
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+@keyframes bolt {
+    0% {
+        transform: scale(0);
+    }
+    
+    80% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
     }
 }

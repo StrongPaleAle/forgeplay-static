@@ -1,0 +1,37 @@
+<header class="fixed top-0 left-0 w-full z-50">
+      <div class="container mx-auto">
+        <div class="flex justify-between items-center md:py-6 isolate">
+          <div class="logo-nav cube cube-lb z-20">
+            <a href="#cover">
+              <span  class="sr-only focus:not-sr-only">Forgeplay Home</span>
+              {{> logo }}
+            </a>
+            
+          </div>
+          <button class="menu-toggle cube cube-rb md:hidden z-20" aria-hidden="true">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+          </button>
+          <nav class="menu" role="navigation">
+            <ul class="flex flex-col justify-center h-full items-end text-2xl md:text-lg md:flex-row">
+              <li class="menu__item">
+                <a href="#games" class="menu__link">
+                  <span>Games</span>
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#about" class="menu__link">
+                  <span>About</span>
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#contact" class="menu__link">
+                  <span>Contact</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>

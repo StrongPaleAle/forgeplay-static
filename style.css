@@ -108,12 +108,19 @@ html{
         transform: translateX(0);
     }
     &__link{
-        @apply block p-6 md:py-3 md:px-5 bg-abyss-800;
+        @apply  bg-abyss-800 inline-block;
         transform: translate(0, 0);
         transition: all 0.2s ease-in-out;
+        @apply  cube cube-rb;
+        span{
+            @apply block p-6 md:py-3 md:px-5 bg-abyss-950 bg-opacity-0;
+        }
         &.current{
-            @apply bg-abyss-900;
+            
             transform: translate(var(--slant), var(--slant));
+            span{
+                @apply bg-opacity-100;
+            }
         }
     }
 }

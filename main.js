@@ -112,3 +112,32 @@ menuLinks.forEach(link => {
         link.classList.add('current');
     });
 });
+
+// simple function to use for callback in the intersection observer
+const changeNav = (entries, observer) => {
+	entries.forEach((entry) => {
+		// verify the element is intersecting
+		if(entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+			// remove old active class
+			document.querySelector('.current').classList.remove('current');
+			// get id of the intersecting section
+			var id = entry.target.getAttribute('id');
+			// find matching link & add appropriate class
+			var newLink = document.querySelector(`[href="#${id}"]`).classList.add('current');
+            entry.target.classList.add('on-screen');
+		}
+	});
+}
+
+// init the observer
+const options = {
+	threshold: 0.55
+}
+
+const observer = new IntersectionObserver(changeNav, options);
+
+// target the elements to be observed
+const sections = document.querySelectorAll('section.menu-section');
+sections.forEach((section) => {
+	observer.observe(section);
+});

@@ -1,10 +1,15 @@
 <header class="fixed top-0 left-0 w-full z-50">
       <div class="container mx-auto">
         <div class="flex justify-between items-center md:py-6 isolate">
-          <div class="logo-nav cube cube-lb z-20">
-            <a href="#cover">
+          <div class="logo-nav z-20">
+            <a href="#home" class="current">
               <span  class="sr-only focus:not-sr-only">Forgeplay Home</span>
-              {{> logo }}
+              <span class="inner">
+                
+                <span class="logo-placeholder">{{> logo }}</span>
+                <span class="logo-shadow">{{> logo }}</span>
+              </span>
+              
             </a>
             
           </div>
@@ -17,17 +22,17 @@
             <ul class="flex flex-col justify-center h-full items-end text-2xl md:text-lg md:flex-row">
               <li class="menu__item">
                 <a href="#games" class="menu__link">
-                  <span>Games</span>
+                  <span data-content="Games">Games</span>
                 </a>
               </li>
               <li class="menu__item">
                 <a href="#about" class="menu__link">
-                  <span>About</span>
+                  <span data-content="About">About</span>
                 </a>
               </li>
               <li class="menu__item">
                 <a href="#contact" class="menu__link">
-                  <span>Contact</span>
+                  <span data-content="Contact">Contact</span>
                 </a>
               </li>
             </ul>

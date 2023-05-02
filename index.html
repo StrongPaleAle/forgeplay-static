@@ -52,10 +52,10 @@
     <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
     {{> header }}
     <main id="main">
-      <section id="cover" class="py-40 px-6 flex justify-center items-center bg-abyss-800 lg:py-48">
+      <section id="home" class="menu-section py-40 px-6 flex justify-center items-center bg-abyss-800 lg:py-48">
         <div class="text-center">
           <div class="logo mb-6 md:mb-8 lg:mb-10 xl:mb-12">
-            {{> logo }}
+            {{> logoCover }}
           </div>
           <div class="logo-text">
             {{> forgeplay }}
@@ -65,7 +65,7 @@
         </div>
         <div class="end-shadow" aria-hidden="true"></div>
       </section>
-      <section id="games" class="p-6 pb-40 bg-abyss">
+      <section id="games" class="menu-section p-6 pb-40 bg-abyss">
         <div class="container mx-auto">
           
           <div class="flex flex-col gap-6 lg:flex-row pb-12">
@@ -79,8 +79,8 @@
                 <div class="game-card__image dialog-open">
                   <img src="https://placekitten.com/640/420" alt="">
                 </div>
-                <div class="game-card__content text-center bg-abyss-800 p-6 pt-12 -mt-6">
-                  <h3 class="text-2xl heading uppercase font-bold"><button class="dialog-open">Game title</button></h3>
+                <div class="game-card__content  cube cube-lb text-center bg-abyss-800 p-6 pt-12 -mt-6">
+                  <h3 class="text-2xl heading uppercase font-bold"><button class="dialog-open uppercase">Game title</button></h3>
                   <p class="text-primary italic">April 2023</p>
                   <div class="game-card__links" >
                     <div class="flex justify-center gap-4 py-6">
@@ -102,7 +102,7 @@
                 <div class="game-card__image">
                   <img src="https://placekitten.com/640/420" alt="">
                 </div>
-                <div class="game-card__content text-center bg-abyss-800 p-6 pt-12 -mt-6">
+                <div class="game-card__content  cube cube-lb text-center bg-abyss-800 p-6 pt-12 -mt-6">
                   <h3 class="text-2xl heading uppercase font-bold">Game title</h3>
                   <p class="text-primary italic">Coming 2023</p>
                   <!-- <div class="game-card__links" >
@@ -125,7 +125,7 @@
                 <div class="game-card__image">
                   <img src="https://placekitten.com/640/420" alt="">
                 </div>
-                <div class="game-card__content text-center bg-abyss-800 p-6 pt-12 -mt-6">
+                <div class="game-card__content cube cube-lb text-center bg-abyss-800 p-6 pt-12 -mt-6">
                   <h3 class="text-2xl heading uppercase font-bold">Game title</h3>
                   <p class="text-primary italic">Coming 2023</p>
                   <div class="game-card__links" >
@@ -145,36 +145,39 @@
         </div>
         {{> game_dialog}}
       </section>
-      <section id="about" class="p-6 py-40 bg-abyss-800">
+      <section id="about" class="menu-section p-6 py-40 bg-abyss-800 cube cube-rb">
         <div class="container mx-auto">
           <div class="flex flex-col gap-12 lg:gap-24 lg:flex-row items-center">
             <div class="about-image">
-              <div class="border-secondary border-8">
-                <img class="transform translate-x-4 translate-y-4" src="/assets/images/Forgeplay_Team.jpg" alt="Forgeplay Team Cyberpunk style illustration">
+              <div class="border-primary border-8">
+                <div class="image-inner cube cube-lb translate-x-4 translate-y-4" >
+                  <img src="/assets/images/Forgeplay_Team.jpg" alt="Forgeplay Team Cyberpunk style illustration">
+                </div>
               </div>
-              
             </div>
             <div class="flex flex-col gap-6 lg:flex-row pb-12">
               <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pb-0 lg:border-b-0 lg:border-l-2">About</h2>
-              <p class="max-w-prose">Siamo un team di appassionati di videogiochi che non si accontentano del solito intrattenimento fine a sé stesso. Noi crediamo che i giochi possano avere un impatto positivo sulla vita delle persone, e vogliamo dimostrarlo con i nostri progetti. La nostra squadra ha una missione chiara: creare giochi che stimolino il pensiero critico e la creatività, ma che siano anche in grado di trasmettere messaggi importanti per ispirare i giocatori.
+
+              <p class="max-w-prose pop-in">Siamo un team di appassionati di videogiochi che non si accontentano del solito intrattenimento fine a sé stesso. Noi crediamo che i giochi possano avere un impatto positivo sulla vita delle persone, e vogliamo dimostrarlo con i nostri progetti. La nostra squadra ha una missione chiara: creare giochi che stimolino il pensiero critico e la creatività, ma che siano anche in grado di trasmettere messaggi importanti per ispirare i giocatori.
 									Non ci accontentiamo di creare semplici passatempi, ma vogliamo sviluppare giochi che abbiano uno scopo ben preciso, che siano uno strumento per il bene comune. La nostra esperienza in progettazione e competenza in materia di sviluppo di giochi e di narrazione ci permettono di unire l'utile al dilettevole, creando esperienze di gioco coinvolgenti e innovative.</p>
+
             </div>
           </div>
           
         </div>
       </section>
-      <section id="contact"  class="p-6 py-40 bg-abyss">
+      <section id="contact"  class="menu-section p-6 py-40 bg-abyss">
         <div class="container mx-auto">
           <div class="flex flex-col gap-12 lg:gap-24 lg:flex-row items-start">
             <div class="flex flex-col gap-6 lg:flex-row pb-12">
               <h2 class="section-title pb-2 heading text-5xl  uppercase font-bold text-white border-primary border-b-2 lg:pl-2 lg:pb-0 lg:border-b-0 lg:border-l-2">Contact</h2>
-              <p class="max-w-prose">Se vuoi collaborare con noi o diventare nostro partner, sei interessato ai nostri prodotti o servizi e vuoi saperne di più, o se vuoi condividere con noi la tua proposta e la tua visione, sei nel posto giusto. 
+              <p class="max-w-prose pop-in">Se vuoi collaborare con noi o diventare nostro partner, sei interessato ai nostri prodotti o servizi e vuoi saperne di più, o se vuoi condividere con noi la tua proposta e la tua visione, sei nel posto giusto. 
 									Il nostro team di esperti in Tecnologie digitali offre servizi di consulenza per aziende di ogni settore, con l'obiettivo di supportare la crescita e il loro successo.
 									Siamo sempre alla ricerca di nuove opportunità di crescita e di collaborazione. Compila il modulo di contatto qui sotto per richiedere maggiori informazioni e scoprire come possiamo aiutare la tua azienda a raggiungere i suoi obiettivi. 
 									Il nostro team ti contatterà al più presto per fornirti tutte le informazioni di cui hai bisogno e valutare insieme le migliori soluzioni per il tuo business.</p>
             </div>
             <div>
-              <form id="contact-form" aria-labelledby="form-title">
+              <form id="contact-form" class="forge-in" aria-labelledby="form-title">
                 <div class="grid grid-cols-1 gap-6">
                   <h3 id="form-title" class="text-2xl heading uppercase font-bold">Contact us</h3>
                   <label class="block" for="form_name">
@@ -310,8 +313,8 @@
       </section>
     </main>
     
-    <footer id="footer" class="p-20 px-6 bg-abyss">
-      <div class="container mx-auto px-4 py-20 bg-abyss-800">
+    <footer id="footer" class="p-20 px-6 bg-abyss ">
+      <div class="container mx-auto px-4 py-20 bg-abyss-800 cube cube-lb">
         <div class="text-center text-white">
           <div class="flex justify-center items-center gap-3">
             <div class="w-10">

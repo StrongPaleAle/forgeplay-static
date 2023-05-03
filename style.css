@@ -264,6 +264,10 @@ html{
 }
 #home{
     background-image: url('/assets/images/cover.jpg');
+    @supports (background-image: url('/assets/images/cover.webp')){
+        background-image: url('/assets/images/cover.webp');
+    }
+   
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -396,10 +400,8 @@ html{
     }
     .game-wrapper {
         opacity: 0;
+        &.on-screen{
         
-    }
-    &.on-screen{
-        .game-wrapper {
             animation: forgeplay 0.5s ease-in-out forwards;
             &:nth-child(2){
                 animation-delay: 0.2s;
@@ -407,9 +409,12 @@ html{
             &:nth-child(3){
                 animation-delay: 0.4s;
             }
-        }
+        
 
+        }
+        
     }
+    
 }
 section.cube{
     --slant: 1rem;
@@ -484,13 +489,11 @@ section.cube{
     .about-image .image-inner{
         --slant: 0.75rem;
         opacity: 0;
-    }
-    &.on-screen{
-        .about-image .image-inner{
+        &.on-screen{
             animation: image 0.5s ease-in-out forwards;
         }
-
     }
+    
 }
 .dialog{
     @apply fixed inset-0 z-50 flex items-center justify-center isolate;
@@ -539,9 +542,10 @@ section.cube{
         }
     }
     &__gallery{
-        img{
+        picture, img{
             @media (min-width: 640px){
                 max-height: 75vh;
+                width: auto;
             }
             
         }
@@ -654,12 +658,12 @@ section.cube{
     opacity: 0;
 }
 .on-screen{
-    .pop-in{
+    &.pop-in{
     
         animation: pop 0.3s ease-in 0.5s;
         animation-fill-mode: forwards;
     }
-    .forge-in{
+    &.forge-in{
         animation: forgeplay 0.3s ease-in 0.5s;
         animation-fill-mode: forwards;
     }

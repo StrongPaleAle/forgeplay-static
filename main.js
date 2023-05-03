@@ -98,6 +98,7 @@ const logoNav = document.querySelector('.logo-nav');
 menuToggle.addEventListener('click', () => {
     menu.classList.toggle('open');
     menuToggle.classList.toggle('active');
+    menuToggle.attributes['aria-expanded'].value = menuToggle.attributes['aria-expanded'].value === 'true' ? 'false' : 'true';
     logoNav.classList.toggle('active');
 });
 menuLinks.forEach(link => {
@@ -128,16 +129,29 @@ const changeNav = (entries, observer) => {
 		}
 	});
 }
-
+const getIn = (entries, observer) => {
+	entries.forEach((entry) => {
+		// verify the element is intersecting
+		if(entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+			
+            entry.target.classList.add('on-screen');
+		}
+	});
+}
 // init the observer
 const options = {
 	threshold: 0.55
 }
 
 const observer = new IntersectionObserver(changeNav, options);
-
+const elemObserver = new IntersectionObserver(getIn, options);
 // target the elements to be observed
 const sections = document.querySelectorAll('section.menu-section');
 sections.forEach((section) => {
 	observer.observe(section);
+});
+
+const showOnScroll = document.querySelectorAll('.show-on-scroll');
+showOnScroll.forEach((ele) => {
+    elemObserver.observe(ele);
 });

@@ -98,15 +98,20 @@
           </div>
           
           <div class="games-grid grid w-full gap-6 justify-center">
-            <div class="game-wrapper pb-32">
+            <div class="game-wrapper pb-32 show-on-scroll">
               <div class="game-card" data-dialog="game-1">
                 <div class="game-card__image dialog-open">
-                  <img src="/assets/images/tutam/tutam_icon_v03.jpg" alt="TuTam App Icon">
+                  <picture class="block">
+                    <source srcset="/assets/images/tutam/tutam_icon_v03.webp" type="image/webp" width="640" height="640">
+                    <source srcset="/assets/images/tutam/tutam_icon_v03.jpg" type="image/jpeg" width="640" height="640">
+                    <img src="/assets/images/tutam/tutam_icon_v03.jpg" alt="TuTam App Icon" loading="lazy" width="640" height="640">
+                  </picture>
+                  
                 </div>
                 <div class="game-card__content  cube cube-lb text-center bg-abyss-800 p-6 pt-12 -mt-6">
                   <h3 class="text-2xl heading uppercase font-bold"><button class="dialog-open uppercase">TuTam</button></h3>
                   <p class="text-primary italic">May 2023</p>
-                  <div class="game-card__links" >
+                  <!-- <div class="game-card__links" >
                     <div class="flex justify-center gap-4 py-6">
                       <a href="#" class="btn btn--primary">
                         <span>Playstrore</span>
@@ -117,14 +122,19 @@
                       </a>
                     </div>
                     
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
-            <div class="game-wrapper pb-32">
+            <div class="game-wrapper pb-32  show-on-scroll">
               <div class="game-card unavailable">
                 <div class="game-card__image">
-                  <img src="/assets/images/Dungeon_Math_Quest.jpg" alt="Dangeon Math Quest cover preview. The image of Three wizards is highly obscured by a filter, and it's partially covered by a strip that says Coming Soon">
+                  <picture class="block">
+                    <source srcset="/assets/images/Dungeon_Math_Quest.webp" type="image/webp" width="640" height="640">
+                    <source srcset="/assets/images/Dungeon_Math_Quest.jpg" type="image/jpeg" width="640" height="640">
+                    <img src="/assets/images/Dungeon_Math_Quest.jpg"  loading="lazy" alt="Dangeon Math Quest cover preview. The image of Three wizards is highly obscured by a filter, and it's partially covered by a strip that says Coming Soon" width="640" height="640">
+                  </picture>
+                  
                 </div>
                 <div class="game-card__content  cube cube-lb text-center bg-abyss-800 p-6 pt-12 -mt-6">
                   <h3 class="text-2xl heading uppercase font-bold">Dangeon Math Quest</h3>
@@ -144,10 +154,14 @@
                 </div>
               </div>
             </div>
-            <div class="game-wrapper pb-32">
+            <div class="game-wrapper pb-32 show-on-scroll">
               <div class="game-card unavailable">
                 <div class="game-card__image">
-                  <img src="/assets/images/Folklory.jpg" alt="Coming soon written on a static noise screen">
+                  <picture class="block">
+                    <source srcset="/assets/images/Folklory.webp" type="image/webp" width="640" height="640">
+                    <source srcset="/assets/images/Folklory.jpg" type="image/jpeg" width="640" height="640">
+                    <img src="/assets/images/Folklory.jpg"  loading="lazy" alt="Coming soon written on a static noise screen" width="640" height="640">
+                  </picture>
                 </div>
                 <div class="game-card__content cube cube-lb text-center bg-abyss-800 p-6 pt-12 -mt-6">
                   <h3 class="text-2xl heading uppercase font-bold">Folklory</h3>
@@ -174,8 +188,12 @@
           <div class="flex flex-col gap-12 xl:gap-24 xl:flex-row items-center">
             <div class="about-image max-w-3xl">
               <div class="border-primary border-8">
-                <div class="image-inner cube cube-lb translate-x-4 translate-y-4" >
-                  <img src="/assets/images/Forgeplay_Team.jpg" alt="Forgeplay Team Cyberpunk style illustration">
+                <div class="image-inner cube cube-lb translate-x-4 translate-y-4 show-on-scroll" >
+                  <picture class="block">
+                    <source srcset="/assets/images/Forgeplay_Team.webp" type="image/webp" width="1024" height="410">
+                    <source srcset="/assets/images/Forgeplay_Team.jpg" type="image/jpeg" width="1024" height="410">
+                    <img src="/assets/images/Forgeplay_Team.jpg" alt="Forgeplay Team Cyberpunk style illustration" loading="lazy" width="1024" height="410">
+                  </picture>
                 </div>
               </div>
             </div>
@@ -185,7 +203,7 @@
                 About
               </h2>
 
-              <p class="max-w-prose pop-in">
+              <p class="max-w-prose pop-in show-on-scroll">
                 <!-- Siamo un team di appassionati di videogiochi che non si accontentano del solito intrattenimento fine a sé stesso. Noi crediamo che i giochi possano avere un impatto positivo sulla vita delle persone, e vogliamo dimostrarlo con i nostri progetti. La nostra squadra ha una missione chiara: creare giochi che stimolino il pensiero critico e la creatività, ma che siano anche in grado di trasmettere messaggi importanti per ispirare i giocatori.
 								Non ci accontentiamo di creare semplici passatempi, ma vogliamo sviluppare giochi che abbiano uno scopo ben preciso, che siano uno strumento per il bene comune. La nostra esperienza in progettazione e competenza in materia di sviluppo di giochi e di narrazione ci permettono di unire l'utile al dilettevole, creando esperienze di gioco coinvolgenti e innovative. -->
                 We are a team of video game enthusiasts unsatisfied with the usual entertainment for its own sake. We believe that games can beneficially impact people's lives, and we want to prove it with our projects. Our team has a clear mission: create games that stimulate critical thinking, creativity, and deliver important messages to inspire players. We do not make simple pastimes. We want, instead, to develop games that bear a specific purpose, a tool for the common good. Our experience and expertise in design, game development, and storytelling allow us to combine business with pleasure, creating immersive and innovative gaming experiences.
@@ -204,7 +222,7 @@
                           lg:pl-2 lg:pb-0 lg:border-b-0 lg:border-l-2 lg:text-end">
                 Contact
               </h2>
-              <p class="max-w-prose pop-in">
+              <p class="max-w-prose pop-in show-on-scroll">
                 <!-- Se vuoi collaborare con noi o diventare nostro partner, sei interessato ai nostri prodotti o servizi e vuoi saperne di più, o se vuoi condividere con noi la tua proposta e la tua visione, sei nel posto giusto. 
 									Il nostro team di esperti in Tecnologie digitali offre servizi di consulenza per aziende di ogni settore, con l'obiettivo di supportare la crescita e il loro successo.
 									Siamo sempre alla ricerca di nuove opportunità di crescita e di collaborazione. Compila il modulo di contatto qui sotto per richiedere maggiori informazioni e scoprire come possiamo aiutare la tua azienda a raggiungere i suoi obiettivi. 
@@ -213,7 +231,7 @@
               </p>
             </div>
             <div>
-              <form id="contact-form" class="forge-in" aria-labelledby="form-title">
+              <form id="contact-form" class="forge-in show-on-scroll" aria-labelledby="form-title">
                 <div class="grid grid-cols-1 gap-6">
                   <h3 id="form-title" class="text-2xl heading uppercase font-bold">Contact us</h3>
                   <label class="block" for="form_name">

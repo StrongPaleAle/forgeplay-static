@@ -41,7 +41,7 @@
                     </p>
                 </div>
                 <footer class="dialog__footer">
-                    <a class="dialog__button btn btn--primary btn--shadow">
+                    {{!-- <a class="dialog__button btn btn--primary btn--shadow">
                         <span>
                             Playstore
                         </span>
@@ -58,7 +58,7 @@
                             Presskit
                         </span>
                         
-                    </a>
+                    </a> --}}
                 </footer>
             </div>
             
@@ -66,9 +66,27 @@
                 <section class="splide" aria-label="Game gallery">
                     <div class="splide__track">
                             <ul class="splide__list">
-                                <li class="splide__slide"><img src="/assets/images/tutam/tutam_01.jpg" alt="Game Image" class="dialog_gallery__image"></li>
-                                <li class="splide__slide"><img src="/assets/images/tutam/tutam_02.jpg" alt="Game Image" class="dialog_gallery__image"></li>
-                                <li class="splide__slide"><img src="/assets/images/tutam/tutam_03.jpg" alt="Game Image" class="dialog_gallery__image"></li>
+                                <li class="splide__slide">
+                                    <picture class="block dialog_gallery__image">
+                                        <source srcset="/assets/images/tutam/tutam_01.webp" type="image/webp" width="540" height="960">
+                                        <source srcset="/assets/images/tutam/tutam_01.jpg" type="image/jpeg" width="540" height="960">
+                                        <img src="/assets/images/tutam/tutam_01.jpg"  loading="lazy" alt="Game Image"  width="540" height="960">
+                                    </picture>
+                                </li>
+                                <li class="splide__slide">
+                                    <picture class="block dialog_gallery__image">
+                                        <source srcset="/assets/images/tutam/tutam_02.webp" type="image/webp" width="540" height="960">
+                                        <source srcset="/assets/images/tutam/tutam_02.jpg" type="image/jpeg" width="540" height="960">
+                                        <img src="/assets/images/tutam/tutam_02.jpg"  loading="lazy" alt="Game Image"  width="540" height="960">
+                                    </picture>
+                                </li>
+                                <li class="splide__slide">
+                                    <picture class="block dialog_gallery__image">
+                                        <source srcset="/assets/images/tutam/tutam_02.webp" type="image/webp" width="540" height="960">
+                                        <source srcset="/assets/images/tutam/tutam_02.jpg" type="image/jpeg" width="540" height="960">
+                                        <img src="/assets/images/tutam/tutam_02.jpg"  loading="lazy" alt="Game Image"  width="540" height="960">
+                                    </picture>
+                                </li>
                             </ul>
                     </div>
                 </section>

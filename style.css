@@ -88,7 +88,7 @@ html{
     }
     a{
         z-index: 1;
-        @apply  absolute md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-abyss-800 inline-block isolate relative;
+        @apply  absolute w-12 h-12 md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-abyss-800 inline-block isolate relative;
         transform: translate(0, 0);
         transition: all 0.2s ease-in-out;
         
@@ -126,7 +126,9 @@ html{
             .logo-placeholder:before{
                 @apply opacity-100;
             }
-            transform: translate(calc(-1 * var(--slant)), calc(var(--slant)));
+            @media (min-width: 768px){
+                transform: translate(calc(-1 * var(--slant)), calc(var(--slant)));
+            }
             .logo-shadow{
                 @apply opacity-70;
             }
@@ -135,7 +137,9 @@ html{
             .logo-placeholder:before{
                 @apply opacity-50;
             }
-            transform: translate(calc(-1 * var(--slant) / 2), calc(var(--slant) / 2));
+            @media (min-width: 768px){
+                transform: translate(calc(-1 * var(--slant) / 2), calc(var(--slant) / 2));
+            }
             .logo-shadow{
                 @apply opacity-30;
             }
@@ -461,12 +465,9 @@ section.cube{
         
     }
     &.unavailable{
-        filter: grayscale(0.5);
-        .game-card__image{
-            
-            img{
-                opacity: 0.5;
-            }
+        
+        .game-card__content{
+            filter: grayscale(0.5);
         }
         h3{
             opacity: 0.75;

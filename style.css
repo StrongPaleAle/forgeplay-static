@@ -314,7 +314,7 @@ html{
     max-width: 70rem;
     width: 100%;
     filter: drop-shadow(0 0 0.5rem var(--color-abyss));
-    //filter : drop-shadow(0.125rem 0.125rem 0  var(--color-primary)) drop-shadow(-0.125rem -0.125rem 0  var(--color-secondary));
+    /* filter : drop-shadow(0.125rem 0.125rem 0  var(--color-primary)) drop-shadow(-0.125rem -0.125rem 0  var(--color-secondary)); */
 }
 .logo{
     min-height: 18rem;

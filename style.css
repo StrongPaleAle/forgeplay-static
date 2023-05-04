@@ -88,7 +88,7 @@ html{
     }
     a{
         z-index: 1;
-        @apply  absolute w-12 h-12 md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-abyss-800 inline-block isolate relative;
+        @apply  absolute w-12 h-12 md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-abyss-800 isolate;
         transform: translate(0, 0);
         transition: all 0.2s ease-in-out;
         
@@ -654,6 +654,7 @@ section.cube{
     
     
 }
+
 .pop-in, .forge-in{
     opacity: 0;
 }

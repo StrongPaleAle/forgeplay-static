@@ -56,7 +56,7 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
                 . "Email: " . $sanitizedEmail . "\n\n"
                 . "Messaggio:\n" . $sanitizedMessage;
   
-        $to = 'alessio.falchi90@gmail.com';
+        $to = 'info@forgeplay.it';
     
         $subject = 'Nuovo messaggio Forgeplay: ' . $sanitizedObject;
         

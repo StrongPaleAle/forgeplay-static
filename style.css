@@ -669,6 +669,9 @@ section.cube{
         animation-fill-mode: forwards;
     }
 }
+.dialog__gallery{
+    animation: fadein 0.5s ease-in;
+}
 @keyframes pop {
     0% {
         opacity: 0;
@@ -685,6 +688,15 @@ section.cube{
     100% {
         opacity: 1;
         scale: 1;
+    }
+}
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
     }
 }
 @keyframes image {

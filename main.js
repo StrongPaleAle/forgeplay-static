@@ -53,9 +53,11 @@ dialogTriggers.forEach(triggerWrapper => {
 
                 }
             });
+            setTimeout(function() {
 
-            mountDialogGallery(dialog);
-
+                mountDialogGallery(dialog);
+            }, 200);
+            
             dialog.querySelectorAll('.dialog-close').forEach(close => {
                 close.addEventListener('click', () => {
                     dialog.classList.remove('open');

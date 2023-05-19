@@ -7,7 +7,13 @@ import { formHandle } from './form';
 
 formHandle('contact-form');
 
-
+if (document.body.classList.contains('home')){
+    const homeLinks = document.querySelectorAll('.home-link');
+    homeLinks.forEach(link => {
+        link.classList.add('current');
+        link.href = '/#home';
+    });
+}
 const dialogTriggers = document.querySelectorAll('[data-dialog]');
 
 dialogTriggers.forEach(triggerWrapper => {
@@ -126,7 +132,7 @@ const changeNav = (entries, observer) => {
 			// get id of the intersecting section
 			var id = entry.target.getAttribute('id');
 			// find matching link & add appropriate class
-			var newLink = document.querySelector(`[href="#${id}"]`).classList.add('current');
+			var newLink = document.querySelector(`[href="/#${id}"]`).classList.add('current');
             entry.target.classList.add('on-screen');
 		}
 	});

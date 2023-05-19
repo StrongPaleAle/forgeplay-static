@@ -47,14 +47,15 @@
       } */
     </style>
     <title>Forgeplay studio</title>
-    <meta name="description" content="We are a team of video game enthusiasts unsatisfied with the usual entertainment for its own sake. We believe that games can beneficially impact people's lives, and we want to prove it with our projects. Our team has a clear mission: create games that stimulate critical thinking, creativity, and deliver important messages to inspire players. We do not make simple pastimes. We want, instead, to develop games that bear a specific purpose, a tool for the common good." />
+    <meta name="description" content="Forge Play Studio is an indie company that creates unique mobile games. Our team of professionals innovates the gaming media with games characterized by a strong personality. Discover our small gaming gems and immerse yourself in a unique gaming experience." />
     <meta name="keywords" content="forgeplay, videogames, games, studio, indie, indie games, indie studio, indie videogames, videogames studio, videogames development" />
     <meta name="author" content="StrongAle" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://forgeplay.it" />
+    <meta name="revisit-after" content="7 days">
 
     <meta property="og:title" content="Forgeplay studio" />
-    <meta property="og:description" content="We are a team of video game enthusiasts unsatisfied with the usual entertainment for its own sake. We believe that games can beneficially impact people's lives, and we want to prove it with our projects. Our team has a clear mission: create games that stimulate critical thinking, creativity, and deliver important messages to inspire players. We do not make simple pastimes. We want, instead, to develop games that bear a specific purpose, a tool for the common good." />
+    <meta property="og:description" content="Forge Play Studio is an indie company that creates unique mobile games. Our team of professionals innovates the gaming media with games characterized by a strong personality. Discover our small gaming gems and immerse yourself in a unique gaming experience." />
     <meta property="og:image" content="https://forgeplay.it/assets/images/Forgeplay_Cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="627" />
@@ -65,7 +66,7 @@
     
 
   </head>
-  <body>
+  <body class="home">
     <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
     {{> header }}
     <main id="main">
@@ -366,40 +367,8 @@
         </div>
       </section>
     </main>
+    {{> footer}}
     
-    <footer id="footer" class="pt-20 pb-12 px-6 bg-abyss ">
-      <div class="container mx-auto px-4 pt-20 pb-12 bg-abyss-800 cube cube-lb">
-        <div class="text-center text-white">
-          <div class="flex justify-center items-center gap-3">
-            <div class="w-10">
-              {{> logo }}
-            </div>
-            <div class="w-80">
-              {{> forgeplay }}
-            </div>
-          </div>
-          
-          <h2 class="sr-only">Forgeplay studio</h2>
-          <nav class="mt-12 mb-20 text-center text-white" role="navigation">
-            <ul class="flex flex-col gap-6 lg:flex-row lg:gap-12 justify-center">
-              <li><a href="#cover">Home</a></li>
-              <li><a href="#games">Games</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-            <p class="copyline flex flex-col sm:flex-row justify-center gap-0 sm:gap-3 text-xs">
-              <span>© 2023 Forgeplay Studio</span> 
-              <span>-</span> 
-              <span>Made with ❤️ by <a class="underline hover:text-primary-500" href="https://strongale.it/" target="_blank">StrongAle</a></span>
-              <span>-</span> 
-              <span>Visuals by <a class="underline hover:text-primary-500" href="https://linktr.ee/cans_one" target="_blank">Cans1</a></span>
-            </p>
-          
-        </div>
-        
-      </div>
-    </footer>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

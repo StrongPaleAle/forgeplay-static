@@ -8,6 +8,7 @@
     --color-abyss: hsl(209, 54%, 10%);
     --color-shadow: hsl(209, 54%, 5%);
     --slant: 0.5rem;
+    
 }
 html{
     scroll-behavior: smooth;
@@ -671,6 +672,12 @@ section.cube{
 }
 .dialog__gallery{
     animation: fadein 0.5s ease-in;
+}
+.prose-forge{
+    --tw-prose-invert-counters: var(--color-primary);
+    --tw-prose-invert-bullets: var(--color-primary);
+    --tw-prose-invert-bold: var(--color-primary);
+    max-width: 80ch;
 }
 @keyframes pop {
     0% {

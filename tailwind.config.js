@@ -2,6 +2,8 @@
 export default {
   content: [
     "./*.{html,js}",
+    "./privacy-policy/*.{html,js,hbs}",
+    "./termini-e-condizioni/*.{html,js,hbs}",
     "./partials/*.{html,js,hbs}"
   ],
   theme: {

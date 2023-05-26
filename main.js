@@ -4,8 +4,10 @@ import Splide from '@splidejs/splide';
 import { formHandle } from './form';
 
 
+if (document.getElementById('contact-form')){
+    formHandle('contact-form');
+}
 
-formHandle('contact-form');
 
 if (document.body.classList.contains('home')){
     const homeLinks = document.querySelectorAll('.home-link');

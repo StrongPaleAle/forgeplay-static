@@ -8,7 +8,7 @@
     --color-abyss: hsl(209, 54%, 10%);
     --color-shadow: hsl(209, 54%, 5%);
     --slant: 0.5rem;
-    
+    --color-highlight: hsl(51, 98%, 70%);
 }
 html{
     scroll-behavior: smooth;
@@ -674,10 +674,22 @@ section.cube{
     animation: fadein 0.5s ease-in;
 }
 .prose-forge{
-    --tw-prose-invert-counters: var(--color-primary);
-    --tw-prose-invert-bullets: var(--color-primary);
-    --tw-prose-invert-bold: var(--color-primary);
+    --tw-prose-invert-counters: var(--color-highlight);
+    --tw-prose-invert-bullets: var(--color-highlight);
+    --tw-prose-invert-bold: var(--color-highlight);
     max-width: 80ch;
+}
+.policy-page .prose-forge{
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    counter-reset: chapter-counter;
+}
+.policy-page{
+    .prose-forge{
+        h2:before{
+            counter-increment: chapter-counter;
+            content: counter(chapter-counter) ". ";
+        }
+    }
 }
 @keyframes pop {
     0% {

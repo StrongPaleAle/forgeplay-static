@@ -1,0 +1,62 @@
+<form id="alpha-form" aria-labelledby="alpha-title">
+    <div class="grid grid-cols-1 gap-6">
+        <h3 id="alpha-title" class="text-2xl heading uppercase font-bold text-primary">Become an Alpha tester!</h3>
+        <div class="flex items-end">
+            <label class="block flex-grow" for="alpha_email">
+                <span class="text-white">Gmail address <span class="sr-only">(required):</span></span>
+                <input type="email" class="
+                    mt-0
+                    bg-abyss-900
+                    block
+                    w-full
+                    px-0.5
+                    border-0 border-b-2 border-primary
+                    focus:ring-0 focus:border-primary-700
+                    
+                    " 
+                    placeholder="john@gmail.com"
+                    id="alpha_email"
+                    name="alpha_email"
+                    required aria-required="true">
+            </label>
+            <div class="block">
+                <button type="submit" class="btn btn--primary w-40 text-lg" disabled>
+                    <span>Send</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="block">
+            <div class="mt-2">
+                <div>
+                <label class="inline-flex items-center" for="alpha_acceptance">
+                    <input type="checkbox" class="
+                        border-primary border-2
+                        text-primary-700
+                        focus:border-primare focus:border-primary-700
+                    "
+                    name="alpha_acceptance"
+                    id="alpha_acceptance"
+                    required aria-required="true">
+                    <span class="ml-2 text-xs">I have read and agree to forgeplay <a class="underline hover:text-primary" href="/privacy-policy">Privacy Policy</a> and <a class="underline hover:text-primary" href="/termini-e-condizioni">Terms and Conditions</a></span>
+                </label>
+                </div>
+                
+            </div>
+            <div class="block">
+                <template id="form_feedback_template">
+                    <div class="form_feedback-wrapper mt-6">
+                        <div class="feedback-box text-sm" role="alert">
+                            <p class="form_feedback_message"></p>
+                        </div>
+                    </div>
+                </template>
+                
+                <div id="form_feedback">
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</form>

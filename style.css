@@ -383,8 +383,15 @@ html{
         }
     }
     &[disabled]{
-        pointer-events: none;
+        
         opacity: 0.5;
+        cursor: not-allowed;
+        &:hover{
+            span{
+                transform: translate(0);
+                --tw-bg-opacity: 1;
+            }
+        }
     }
 }
 .section-title{
@@ -520,7 +527,7 @@ section.cube{
         padding: clamp(0.5rem, 5vw, 3.5rem);
         @media (min-width: 640px){
             max-width: 90vw;
-            max-height: 90vh;
+            max-height: calc(100vh - 1rem);
         }
         &::-webkit-scrollbar {
             display: none;
@@ -597,8 +604,11 @@ section.cube{
     .block[for="form_nickname"]{
         display: none;
     }
+    
+}
+form{
     .feedback-box{
-        @apply p-6 border-2;
+        @apply p-4 border-2;
         &.success{
             @apply border-green-300 bg-green-950 text-green-300;
         }

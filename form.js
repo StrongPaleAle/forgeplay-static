@@ -1,21 +1,27 @@
 export function formHandle(formid){
     const form = document.getElementById(formid);
     //console.log(form);
-    const acceptance = form.querySelector('input#form_acceptance');
+    const formAcceptance = form.querySelector('.acceptance-checkbox');
     const submit = form.querySelector('button[type="submit"]');
-
-    acceptance.addEventListener('change', function(){
-        console.log('acceptance');
+    let isAccepted = false;
+    formAcceptance.addEventListener('change', function(){
+        //console.log('acceptance');
         if(this.checked){
             submit.removeAttribute('disabled');
+            isAccepted = true;
         } else {
             submit.setAttribute('disabled', 'disabled');
+            isAccepted = false;
         }
     });
 
     
     submit.addEventListener('click', function(event){
         event.preventDefault();
+        if(isAccepted){
+            return;
+        }
+
         /*
         * There is no shortcut like with 'new FormData(this)', we need
         * to construct the form-object ourselves. We are creating a regular

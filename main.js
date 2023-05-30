@@ -2,12 +2,14 @@ import '@splidejs/splide/css'
 import './style.css';
 import Splide from '@splidejs/splide';
 import { formHandle } from './form';
-
+import { alphaHandle } from './alpha';
 
 if (document.getElementById('contact-form')){
     formHandle('contact-form');
 }
-
+if (document.getElementById('alpha-form')){
+    alphaHandle('alpha-form');
+}
 
 if (document.body.classList.contains('home')){
     const homeLinks = document.querySelectorAll('.home-link');

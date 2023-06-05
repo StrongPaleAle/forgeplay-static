@@ -21,19 +21,31 @@ $data = json_decode(file_get_contents('php://input'), true);
         exit;
 
     } else {
-        // send the email
+        // check file existence
         if (!file_exists("emails.txt")){
             touch("emails.txt");
         }
         $file = "emails.txt";
 		$current = file_get_contents($file);
-		$current .= $email . ",\n";
-		file_put_contents($file, $current);
-// return success message
-        $result['success'] = true;
-        $result['message'] = 'Thanks for subscribing!';
-        echo json_encode($result);
-        exit;
+		// check if mail is present
+		if(strpos($current, $email)) 
+		{
+			// return error message
+		   $result['message'] = 'You are already subscribed!';
+		   echo json_encode($result);
+		   exit;
+		} else {
+			
+			$current .= $email . ",\n";
+			file_put_contents($file, $current);
+			// return success message
+	        $result['success'] = true;
+	        $result['message'] = 'Thanks for subscribing!';
+	        echo json_encode($result);
+	        exit;
+
+		}
+
     }
 
 ?>

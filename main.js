@@ -130,7 +130,7 @@ menuLinks.forEach(link => {
 const changeNav = (entries, observer) => {
 	entries.forEach((entry) => {
 		// verify the element is intersecting
-		if(entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+		if(entry.isIntersecting) {
 			// remove old active class
 			document.querySelector('.current').classList.remove('current');
 			// get id of the intersecting section
@@ -144,7 +144,7 @@ const changeNav = (entries, observer) => {
 const getIn = (entries, observer) => {
 	entries.forEach((entry) => {
 		// verify the element is intersecting
-		if(entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+		if(entry.isIntersecting) {
 			
             entry.target.classList.add('on-screen');
 		}
@@ -152,7 +152,7 @@ const getIn = (entries, observer) => {
 }
 // init the observer
 const options = {
-	threshold: 0.55
+	rootMargin: "0px 0px -50% 0px"
 }
 
 const observer = new IntersectionObserver(changeNav, options);

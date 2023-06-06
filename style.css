@@ -622,6 +622,11 @@ form{
         --slant: 1rem;
         filter: drop-shadow(0.25rem 0.25rem 0 var(--color-shadow));
     }
+    nav{
+        a{
+            @apply hover:text-primary;
+        }
+    }
 }
 #home{
     .logo{

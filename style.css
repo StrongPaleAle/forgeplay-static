@@ -600,6 +600,16 @@ section.cube{
         }
     }
 }
+#about{
+    .member img{
+        position: absolute;
+        inset: 0;
+    }
+    .members{
+        padding: 16% 19% 5%;
+    }
+}
+
 #contact-form{
     .block[for="form_nickname"]{
         display: none;

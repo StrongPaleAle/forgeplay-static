@@ -501,6 +501,97 @@ section.cube{
             animation: image 0.5s ease-in-out forwards;
         }
     }
+    .member {
+        img{
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+         }
+         .highlight{
+            opacity: 0;
+            height: 100%;
+            
+            &__inner{
+                @apply relative;
+                height: 100%;
+                
+                &:after{
+                    content: '';
+                    @apply absolute bg-white shadow-lg bg-opacity-80 w-5;
+                    inset-inline: 0;
+                    margin-inline: auto;
+                    top: 70%;
+                    height: 5%;
+                    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+                    
+                }
+            }
+            &__arrow{
+                aspect-ratio: 1/1;
+                display: block;
+                background-image: url('/assets/images/Pixelart_assets/Single_Arrow.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                width:50%;
+                margin: 0 auto;
+                animation: jump 0.3s linear infinite;
+            }
+            &:hover{
+                opacity: 1;
+            }
+            
+        }
+        &__baloon{
+            @apply absolute bg-white p-4 shadow-lg text-abyss bg-opacity-80 text-center flex flex-col justify-center items-center;
+            left: 10%;
+            translate: -50% 0;
+            width: max-content;
+            top: 75%;
+            margin: auto;
+            h3{
+                @apply text-xl font-bold text-abyss-950 uppercase whitespace-nowrap;
+            }
+            p{
+                @apply text-sm mb-4 text-abyss-700 whitespace-nowrap;
+            }
+            &:before{
+                content: '';
+                @apply absolute bg-white shadow-lg bg-opacity-80;
+                top: 5px;
+                left: -5px;
+                width: 5px;
+                bottom: 5px;
+                
+            }
+            &:after{
+                content: '';
+                @apply absolute bg-white shadow-lg bg-opacity-80;
+                top: 0;
+                right: -5px;
+                width: 5px;
+                bottom: 5px;
+                
+            }
+            
+            
+            
+        }
+        &:last-child{
+            .highlight-inner{
+                translate: 2% 0;
+            }
+        }
+    }
+    .members{
+        padding: 18% 19% 5%;
+        gap: 3%;
+        isolation: isolate;
+    }
+    
+    
+    
     
 }
 .dialog{
@@ -598,15 +689,6 @@ section.cube{
         &.is-active{
             @apply opacity-100;
         }
-    }
-}
-#about{
-    .member img{
-        position: absolute;
-        inset: 0;
-    }
-    .members{
-        padding: 16% 19% 5%;
     }
 }
 
@@ -810,5 +892,16 @@ form{
     }
     100% {
         transform: scale(1);
+    }
+}
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20%);
+    }
+    100% {
+        transform: translateY(0);
     }
 }

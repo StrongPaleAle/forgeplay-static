@@ -4,7 +4,7 @@
 
 :root{
     --color-primary: hsl(51, 98%, 50%);
-    --color-secondary: hsl(2, 56%, 50%);
+    --color-secondary: hsl(28, 71%, 53%);
     --color-abyss: hsl(209, 54%, 10%);
     --color-shadow: hsl(209, 54%, 5%);
     --slant: 0.5rem;
@@ -89,7 +89,7 @@ html{
     }
     a{
         z-index: 1;
-        @apply  absolute w-12 h-12 md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-abyss-800 isolate;
+        @apply  absolute w-12 h-12 md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-slate-800 isolate;
         transform: translate(0, 0);
         transition: all 0.2s ease-in-out;
         
@@ -97,7 +97,7 @@ html{
             @apply  cube cube-lb;
         }
         .inner{
-            @apply absolute md:bg-abyss-800;
+            @apply absolute md:bg-slate-800;
             inset: -0.5px;
         }
         .logo-placeholder, .logo-shadow{
@@ -158,7 +158,7 @@ html{
 }
 
 .menu-toggle {
-    @apply fixed top-0 right-2 z-20 py-4 w-12 h-12 flex flex-col justify-between items-center bg-abyss-800 md:hidden;
+    @apply fixed top-0 right-2 z-20 py-4 w-12 h-12 flex flex-col justify-between items-center bg-slate-800 md:hidden;
     span{
         @apply block w-6 h-0.5 bg-white;
         transition: transform 0.2s ease-in-out;
@@ -208,7 +208,7 @@ html{
     }
     &__link{
         z-index: 1;
-        @apply  bg-abyss-800 inline-block isolate relative;
+        @apply  bg-slate-800 inline-block isolate relative;
         transform: translate(0, 0);
         transition: all 0.2s ease-in-out;
         
@@ -217,7 +217,7 @@ html{
         }
         
         span{
-            @apply block py-6 px-8 md:py-3 md:px-5 bg-abyss-800 relative;
+            @apply block py-6 px-8 md:py-3 md:px-5 bg-slate-800 relative;
             transition: translate 0.2s ease-in-out;
             &:before{
                 content: attr(data-content);
@@ -360,7 +360,7 @@ html{
     }
     &--abyss{
         span{
-            @apply bg-abyss-800 text-white;
+            @apply bg-slate-800 text-white;
         }
        
     }
@@ -608,7 +608,7 @@ section.cube{
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
     &__content{
-        @apply bg-abyss-800 rounded-lg shadow-lg p-4 relative;
+        @apply bg-slate-800 rounded-lg shadow-lg p-4 relative;
         max-width: 100vw;
         max-height: 100vh;
         width: 100%;

@@ -4,7 +4,7 @@
 
 :root{
     --color-primary: hsl(51, 98%, 50%);
-    --color-secondary: hsl(28, 71%, 53%);
+    --color-secondary: hsl(28, 81%, 50%);
     --color-abyss: hsl(209, 54%, 10%);
     --color-shadow: hsl(209, 54%, 5%);
     --slant: 0.5rem;
@@ -29,12 +29,12 @@ html{
     &:before{
         width:calc(100% + var(--slant));
         height: var(--slant);
-        @apply bg-secondary-800;
+        @apply bg-secondary-700;
     }
     &:after{
         height: calc(100% + var(--slant));
         width: var(--slant);
-        @apply bg-secondary-900;
+        @apply bg-secondary-800;
     }
     &-rb{
     
@@ -47,6 +47,24 @@ html{
             top: 0;
             left: 100%;
             clip-path: polygon(0 0, 100% var(--slant), 100% 100%, 0 calc(100% - var(--slant)));
+        }
+        
+    }
+    &-rb-md{
+        @media (max-width: 767.999px){
+    
+            &:after{
+                content: none !important;
+            }
+            &:before{
+                width:100%;
+                top: 100%;
+                left: 0;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, var(--slant) 100% );
+            }
+            > *{
+                overflow: hidden;
+            }
         }
     }
     &-lb{
@@ -89,7 +107,7 @@ html{
     }
     a{
         z-index: 1;
-        @apply  absolute w-12 h-12 md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-slate-800 isolate;
+        @apply  absolute w-12 h-12 md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-gray-800 isolate;
         transform: translate(0, 0);
         transition: all 0.2s ease-in-out;
         
@@ -97,7 +115,7 @@ html{
             @apply  cube cube-lb;
         }
         .inner{
-            @apply absolute md:bg-slate-800;
+            @apply absolute md:bg-gray-800;
             inset: -0.5px;
         }
         .logo-placeholder, .logo-shadow{
@@ -158,14 +176,14 @@ html{
 }
 
 .menu-toggle {
-    @apply fixed top-0 right-2 z-20 py-4 w-12 h-12 flex flex-col justify-between items-center bg-slate-800 md:hidden;
+    @apply fixed top-0 right-2 z-20 py-4 w-12 h-12 flex flex-col justify-between items-center bg-gray-800 md:hidden;
     span{
         @apply block w-6 h-0.5 bg-white;
         transition: transform 0.2s ease-in-out;
         transform-origin: center;
     }
     &.active{
-        @apply bg-secondary-700;
+        @apply bg-secondary-600;
         span{
             &:nth-child(1){
                 transform: translateY(0.4375rem) rotate(-45deg);
@@ -208,7 +226,7 @@ html{
     }
     &__link{
         z-index: 1;
-        @apply  bg-slate-800 inline-block isolate relative;
+        @apply  bg-gray-800 inline-block isolate relative;
         transform: translate(0, 0);
         transition: all 0.2s ease-in-out;
         
@@ -217,7 +235,7 @@ html{
         }
         
         span{
-            @apply block py-6 px-8 md:py-3 md:px-5 bg-slate-800 relative;
+            @apply block py-6 px-8 md:py-3 md:px-5 bg-gray-800 relative;
             transition: translate 0.2s ease-in-out;
             &:before{
                 content: attr(data-content);
@@ -290,7 +308,7 @@ html{
     bottom: 0.5rem;
     left: 0;
     width: 100%;
-    @apply h-36 bg-secondary-900;
+    @apply h-36 bg-secondary-700;
     clip-path: polygon(0 0, calc(10% + 0.5rem) 50%, calc(90% - 0.5rem) 50%, 100% 0, 100% 100%, 0 100%);
     &:before, &:after{
         content: '';
@@ -299,7 +317,7 @@ html{
         left: 0;
         width: calc(10% + 0.5rem);
         height: 100%;
-        @apply bg-secondary-800;
+        @apply bg-secondary-600;
         clip-path: polygon(0 0, 100% 50%, calc(100% - 0.5rem) calc(50% + 0.5rem), 100% 100%, 0 100%);
     }
     &:after{
@@ -360,13 +378,13 @@ html{
     }
     &--abyss{
         span{
-            @apply bg-slate-800 text-white;
+            @apply bg-gray-800 text-white;
         }
        
     }
     &--secondary{
         span{
-            @apply bg-secondary-500 text-white;
+            @apply bg-secondary-600 text-white;
         }
         
         
@@ -427,6 +445,8 @@ html{
 section.cube{
     --slant: 1rem;
     margin-right: var(--slant);
+    
+    
 }
 .game-card{
     @apply max-w-xs relative;
@@ -493,6 +513,13 @@ section.cube{
     }
 }
 #about{
+    &.cube{
+        
+        @media (max-width: 767.999px){
+            margin-right: 0;
+        }
+    }
+    
     filter: drop-shadow(0.25rem 0.25rem 0 var(--color-shadow));
     .about-image .image-inner{
         --slant: 0.75rem;
@@ -540,11 +567,14 @@ section.cube{
             }
             &:hover{
                 opacity: 1;
+                .member__baloon{
+                    @apply pointer-events-auto;
+                }
             }
             
         }
         &__baloon{
-            @apply absolute bg-white p-4 shadow-lg text-abyss bg-opacity-80 text-center flex flex-col justify-center items-center;
+            @apply absolute bg-white p-4 shadow-lg text-abyss bg-opacity-80 text-center flex flex-col justify-center items-center pointer-events-none;
             left: 10%;
             translate: -50% 0;
             width: max-content;
@@ -582,6 +612,25 @@ section.cube{
             .highlight-inner{
                 translate: 2% 0;
             }
+            .member__baloon{
+                translate: -70% 0;
+            }
+        }
+        &:nth-child(2){
+            .highlight-inner{
+                translate: 2% 0;
+            }
+            .member__baloon{
+                translate: -30% 0;
+            }
+        }
+        &:first-child{
+            .highlight-inner{
+                translate: 2% 0;
+            }
+            .member__baloon{
+                translate: -10% 0;
+            }
         }
     }
     .members{
@@ -608,7 +657,7 @@ section.cube{
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
     &__content{
-        @apply bg-slate-800 rounded-lg shadow-lg p-4 relative;
+        @apply bg-gray-800 rounded-lg shadow-lg p-4 relative;
         max-width: 100vw;
         max-height: 100vh;
         width: 100%;

@@ -545,10 +545,10 @@ section.cube{
                 
                 &:after{
                     content: '';
-                    @apply absolute bg-white shadow-lg bg-opacity-80 w-5;
+                    @apply absolute bg-white  bg-opacity-80 w-5;
                     inset-inline: 0;
                     margin-inline: auto;
-                    top: 70%;
+                    top: 70.1%;
                     height: 5%;
                     clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
                     
@@ -574,12 +574,14 @@ section.cube{
             
         }
         &__baloon{
-            @apply absolute bg-white p-4 shadow-lg text-abyss bg-opacity-80 text-center flex flex-col justify-center items-center pointer-events-none;
+            @apply absolute bg-white p-4  text-abyss bg-opacity-80 text-center flex flex-col justify-center items-center pointer-events-none;
             left: 10%;
             translate: -50% 0;
             width: max-content;
             top: 75%;
             margin: auto;
+            outline: none;
+            clip-path: polygon(0 5px, 5px 5px, 5px 0, 100% 0, 100% calc(100% - 5px) , calc(100% - 5px) calc(100% - 5px),calc(100% - 5px) 100%, 5px 100%, 5px calc(100% - 5px), 0 calc(100% - 5px));
             h3{
                 @apply text-xl font-bold text-abyss-950 uppercase whitespace-nowrap;
             }
@@ -588,18 +590,18 @@ section.cube{
             }
             &:before{
                 content: '';
-                @apply absolute bg-white shadow-lg bg-opacity-80;
+                @apply absolute bg-white  bg-opacity-80;
                 top: 5px;
-                left: -5px;
+                right: 100%;
                 width: 5px;
                 bottom: 5px;
                 
             }
             &:after{
                 content: '';
-                @apply absolute bg-white shadow-lg bg-opacity-80;
+                @apply absolute bg-white  bg-opacity-80;
                 top: 0;
-                right: -5px;
+                left: 100%;
                 width: 5px;
                 bottom: 5px;
                 

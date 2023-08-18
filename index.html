@@ -127,6 +127,36 @@
                 </div>
               </div>
             </div>
+
+            <div class="game-wrapper pb-32 show-on-scroll">
+              <div class="game-card" data-dialog="game-2">
+                <div class="game-card__image dialog-open">
+                  <picture class="block">
+                    <source srcset="/assets/images/laser-chickens/laser_chickens_cover.webp" type="image/webp" width="640" height="640">
+                    <source srcset="/assets/images/laser-chickens/laser_chickens_cover.jpg" type="image/jpeg" width="640" height="640">
+                    <img src="/assets/images/laser-chickens/laser_chickens_cover.jpg" alt="A tale between portals and Laser Chickens" loading="lazy" width="640" height="640">
+                  </picture>
+                  
+                </div>
+                <div class="game-card__content  cube cube-lb text-center bg-gray-800 p-6 pt-12 -mt-6">
+                  <h3 class="text-2xl heading uppercase font-bold"><button class="dialog-open uppercase">Laser Chickens</button></h3>
+                  <p class="text-primary italic">August 2024</p>
+                  <!-- <div class="game-card__links" >
+                    <div class="flex justify-center gap-4 py-6">
+                      <a href="#" class="btn btn--primary">
+                        <span>Playstrore</span>
+                      </a>
+                      <a href="#" class="btn btn--secondary">
+                        <span>Itch.io</span>
+                        
+                      </a>
+                    </div>
+                    
+                  </div> -->
+                </div>
+              </div>
+            </div>
+
             <div class="game-wrapper pb-32  show-on-scroll">
               <div class="game-card unavailable">
                 <div class="game-card__image">
@@ -182,7 +212,8 @@
           </div>
           
         </div>
-        {{> game_dialog}}
+        {{> tutam_dialog}}
+        {{> laser_chickens_dialog}}
       </section>
       <section id="about" class="menu-section md:px-6 py-40  bg-gray-800 cube cube-rb cube-rb-md">
         <div class="container mx-auto">

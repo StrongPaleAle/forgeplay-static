@@ -1,0 +1,110 @@
+<div class="dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="game-1_label" 
+    id="game-1">
+    <div class="dialog__backdrop dialog-close"></div>
+    <div class="dialog__content">
+        
+        <div class="grid gap-8 lg:gap-8">
+            <div>
+                <header class="dialog__header">
+                    <h2 id="game-1_label" class="dialog__title">TuTam</h2>
+                </header>
+                <div class="dialog__info">
+                    <div class="dialog__info-item">
+                        <span class="dialog__info-label">Genre:</span>
+                        <span class="dialog__info-value">Arcade</span>
+                    </div>
+                    <div class="dialog__info-item">
+                        <span class="dialog__info-label">Platforms:</span>
+                        <span class="dialog__info-value">Android - itch </span>
+                    </div>
+                    <div class="dialog__info-item">
+                        <span class="dialog__info-label">Release Date:</span>
+                        <span class="dialog__info-value">September 2023</span>
+                    </div>
+                    <div class="dialog__info-item">
+                        <span class="dialog__info-label">Rating:</span>
+                        <span class="dialog__info-value">+5</span>
+                    </div>
+                </div>
+                <div class="dialog__body">
+                    <p class="dialog__message">
+                       Thanks to this infinity run, the player can take control of a black sphere and face an epic challenge. The sphere runs on a randomly generated road, located at incredible dizzying heights. The road is very narrow and features a series of challenging curves, which require great driving skills from the player. In addition, the sphere must jump over gaps and dodge obstacles to stay alive as long as possible.
+                    </p>
+                    <p class="dialog__message">
+                        The game also features a series of increasingly difficult levels that put the player's driving skills to the test. The challenge becomes more and more demanding as progress is made, and the player must be ready to continually improve their driving skills to succeed.
+                    </p>
+                    <p class="dialog__message">
+                        TuTam is a must for fans of challenging and engaging games. The challenge is extremely rewarding and the graphics and soundtrack are simply spectacular. If you're ready to face a real challenge, this game is perfect for you!
+                    </p>
+                </div>
+                <footer class="dialog__footer">
+                    {{> alphatest}}
+    
+                    {{!-- <a class="dialog__button btn btn--primary btn--shadow">
+                        <span>
+                            Playstore
+                        </span>
+                        
+                    </a>
+					<a class="dialog__button btn btn--primary btn--shadow">
+                        <span>
+                            Itch.io
+                        </span>
+                        
+                    </a>
+					<a class="dialog__button btn btn--secondary btn--shadow">
+                        <span>
+                            Presskit
+                        </span>
+                        
+                    </a> --}}
+                </footer>
+            </div>
+            
+            <div class="dialog__gallery">
+                <section class="splide" aria-label="Game gallery">
+                    <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <picture class="block dialog_gallery__image">
+                                        <source srcset="/assets/images/tutam/tutam_01.webp" type="image/webp" width="540" height="960">
+                                        <source srcset="/assets/images/tutam/tutam_01.jpg" type="image/jpeg" width="540" height="960">
+                                        <img src="/assets/images/tutam/tutam_01.jpg"  loading="lazy" alt="Game Image"  width="540" height="960">
+                                    </picture>
+                                </li>
+                                <li class="splide__slide">
+                                    <picture class="block dialog_gallery__image">
+                                        <source srcset="/assets/images/tutam/tutam_02.webp" type="image/webp" width="540" height="960">
+                                        <source srcset="/assets/images/tutam/tutam_02.jpg" type="image/jpeg" width="540" height="960">
+                                        <img src="/assets/images/tutam/tutam_02.jpg"  loading="lazy" alt="Game Image"  width="540" height="960">
+                                    </picture>
+                                </li>
+                                <li class="splide__slide">
+                                    <picture class="block dialog_gallery__image">
+                                        <source srcset="/assets/images/tutam/tutam_03.webp" type="image/webp" width="540" height="960">
+                                        <source srcset="/assets/images/tutam/tutam_03.jpg" type="image/jpeg" width="540" height="960">
+                                        <img src="/assets/images/tutam/tutam_03.jpg"  loading="lazy" alt="Game Image"  width="540" height="960">
+                                    </picture>
+                                </li>
+                            </ul>
+                    </div>
+                </section>
+            </div>
+            
+        </div>
+        <div class="close-wrapper">
+            <button type="button" class="dialog-close btn btn--secondary btn--shadow btn--icon">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span class="sr-only">Close Dialog</span> 
+                </span>
+            </button>
+        </div>
+        
+    </div>
+</div>

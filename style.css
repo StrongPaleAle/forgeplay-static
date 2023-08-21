@@ -531,9 +531,10 @@ section.cube{
         }
     }
     .member {
-        img{
+        img, picture{
             position: absolute;
             inset: 0;
+            width: 100%;
             pointer-events: none;
             z-index: -1;
          }

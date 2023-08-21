@@ -46,12 +46,18 @@
                 <section class="splide" aria-label="Game gallery">
                     <div class="splide__track">
                             <ul class="splide__list">
-                                
+                                <li class="splide__slide">
+                                    <picture class="block dialog_gallery__image">
+                                        <source srcset="/assets/images/laser-chickens/laser_chickens_title.webp" type="image/webp"   width="800" height="450">
+                                        <source srcset="/assets/images/laser-chickens/laser_chickens_title.jpg" type="image/jpeg"  width="800" height="450">
+                                        <img src="/assets/images/laser-chickens/laser_chickens_title.jpg"  loading="lazy" alt="Game Title animation demo"  width="800" height="450">
+                                    </picture>
+                                </li>
                                 <li class="splide__slide">
                                     <picture class="block dialog_gallery__image">
                                         <source srcset="/assets/images/laser-chickens/laser_chickens_screenshot.webp" type="image/webp"   width="800" height="450">
                                         <source srcset="/assets/images/laser-chickens/laser_chickens_screenshot.jpg" type="image/jpeg"  width="800" height="450">
-                                        <img src="/assets/images/laser-chickens/laser_chickens_screenshot.jpg"  loading="lazy" alt="Game Image"  width="800" height="450">
+                                        <img src="/assets/images/laser-chickens/laser_chickens_screenshot.jpg"  loading="lazy" alt="Game Screenshot"  width="800" height="450">
                                     </picture>
                                 </li>
                                 
@@ -78,11 +84,12 @@
                                 </li>
                                 <li class="splide__slide">
                                     <div class="aspect-video portrait">
-                                        <video controls preload="auto">
+                                        <video controls preload="auto" aria-labelledby="trailer">
                                             <source src="/assets/images/laser-chickens/laser_chickens_trailer.webm" type="video/webm">
                                             <source src="/assets/images/laser-chickens/laser_chickens_trailer.mp4" type="video/mp4">
                                             Your browser does not support the video tag.
                                         </video>
+                                        <p id="trailer" class="sr-only">Laser Chickens Trailer</p>
                                     </div>
                                     
                                 </li>

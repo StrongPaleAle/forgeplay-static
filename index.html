@@ -98,7 +98,7 @@
             </p>
           </div>
           
-          <div class="games-grid grid w-full gap-6 justify-center">
+          <div class="games-grid flex flex-wrap w-full gap-6 justify-center">
             <div class="game-wrapper pb-32 show-on-scroll">
               <div class="game-card" data-dialog="game-1">
                 <div class="game-card__image dialog-open">
@@ -158,17 +158,17 @@
             </div>
 
             <div class="game-wrapper pb-32  show-on-scroll">
-              <div class="game-card unavailable">
-                <div class="game-card__image">
+              <div class="game-card"  data-dialog="game-3">
+                <div class="game-card__image  dialog-open">
                   <picture class="block">
-                    <source srcset="/assets/images/Dungeon_Math_Quest.webp" type="image/webp" width="640" height="640">
-                    <source srcset="/assets/images/Dungeon_Math_Quest.jpg" type="image/jpeg" width="640" height="640">
-                    <img src="/assets/images/Dungeon_Math_Quest.jpg"  loading="lazy" alt="Dangeon Math Quest cover preview. The image of Three wizards is highly obscured by a filter, and it's partially covered by a strip that says Coming Soon" width="640" height="640">
+                    <source srcset="/assets/images/candy-math/candy_math_cover.webp" type="image/webp" width="640" height="640">
+                    <source srcset="/assets/images/candy-math/candy_math_cover.jpg" type="image/jpeg" width="640" height="640">
+                    <img src="/assets/images/candy-math/candy_math_cover.jpg"  loading="lazy" alt="Candy Math Lab screenshot" width="640" height="640">
                   </picture>
                   
                 </div>
                 <div class="game-card__content  cube cube-lb text-center bg-gray-800 p-6 pt-12 -mt-6">
-                  <h3 class="text-2xl heading uppercase font-bold">Dungeon Math Quest</h3>
+                  <h3 class="text-2xl heading uppercase font-bold"><button class="dialog-open uppercase">Candy Math Land</button></h3>
                   <p class="text-primary italic">Coming Soon</p>
                    <!-- <div class="game-card__links" >
                     <div class="flex justify-center gap-4 py-6">
@@ -186,16 +186,40 @@
               </div>
             </div>
             <div class="game-wrapper pb-32 show-on-scroll">
-              <div class="game-card unavailable">
-                <div class="game-card__image">
+              <div class="game-card"  data-dialog="game-4">
+                <div class="game-card__image dialog-open">
                   <picture class="block">
-                    <source srcset="/assets/images/Folklory.webp" type="image/webp" width="640" height="640">
-                    <source srcset="/assets/images/Folklory.jpg" type="image/jpeg" width="640" height="640">
-                    <img src="/assets/images/Folklory.jpg"  loading="lazy" alt="Coming soon written on a static noise screen" width="640" height="640">
+                    <source srcset="/assets/images/folklory/folklory_cover.webp" type="image/webp" width="640" height="640">
+                    <source srcset="/assets/images/folklory/folklory_cover.jpg" type="image/jpeg" width="640" height="640">
+                    <img src="/assets/images/folklory/folklory_cover.jpg"  loading="lazy" alt="Coming soon written on a static noise screen" width="640" height="640">
                   </picture>
                 </div>
                 <div class="game-card__content cube cube-lb text-center bg-gray-800 p-6 pt-12 -mt-6">
-                  <h3 class="text-2xl heading uppercase font-bold">Folklory</h3>
+                  <h3 class="text-2xl heading uppercase font-bold"><button class="dialog-open uppercase">Folklory</button></h3>
+                  <p class="text-primary italic">Coming soon</p>
+                  <!-- <div class="game-card__links" >
+                    <div class="flex justify-center gap-4 py-6">
+                      <a href="#" class="btn btn--primary">
+                        <span>Wishlist</span>
+                      </a>
+                      
+                    </div>
+                    
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="game-wrapper pb-32 show-on-scroll">
+              <div class="game-card"  data-dialog="game-5">
+                <div class="game-card__image dialog-open">
+                  <picture class="block">
+                    <source srcset="/assets/images/puzzle-game/puzzle_cover.webp" type="image/webp" width="640" height="640">
+                    <source srcset="/assets/images/puzzle-game/puzzle_cover.jpg" type="image/jpeg" width="640" height="640">
+                    <img src="/assets/images/puzzle-game/puzzle_cover.jpg"  loading="lazy" alt="Coming soon written on a static noise screen" width="640" height="640">
+                  </picture>
+                </div>
+                <div class="game-card__content cube cube-lb text-center bg-gray-800 p-6 pt-12 -mt-6">
+                  <h3 class="text-2xl heading uppercase font-bold"><button class="dialog-open uppercase">Puzzle Game</button></h3>
                   <p class="text-primary italic">Coming soon</p>
                   <!-- <div class="game-card__links" >
                     <div class="flex justify-center gap-4 py-6">
@@ -214,6 +238,9 @@
         </div>
         {{> tutam_dialog}}
         {{> laser_chickens_dialog}}
+        {{> candy_math_dialog}}
+        {{> folklory_dialog}}
+        {{> puzzle_game_dialog}}
       </section>
       <section id="about" class="menu-section md:px-6 py-40  bg-gray-800 cube cube-rb cube-rb-md">
         <div class="container mx-auto">

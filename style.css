@@ -97,17 +97,18 @@ html{
     }
 }
 .logo-nav{
-    @apply fixed top-4 left-3 md:top-0 md:left-0  z-20 opacity-0 md:opacity-100 md:relative;
+    @apply fixed top-4 left-3 w-16 h-16 md:w-20 md:h-20 md:top-0 md:left-0  z-20 opacity-0 md:opacity-100 md:relative;
     filter: drop-shadow(0.25rem 0.25rem 0 var(--color-shadow));
     overflow: hidden;
     transition: opacity 0.2s ease-in-out;
+    
     @media (min-width: 768px){
         padding-bottom: var(--slant);
         padding-left: var(--slant);
     }
     a{
         z-index: 1;
-        @apply  absolute w-12 h-12 md:w-16 md:h-16 inset-0 md:px-3 flex md:justify-center items-center md:bg-gray-800 isolate;
+        @apply  absolute w-12 h-12 md:w-16 md:h-16 inset-0 px-3 flex justify-center items-center bg-gray-800 isolate;
         transform: translate(0, 0);
         transition: all 0.2s ease-in-out;
         
@@ -115,11 +116,11 @@ html{
             @apply  cube cube-lb;
         }
         .inner{
-            @apply absolute md:bg-gray-800;
+            @apply absolute bg-gray-800;
             inset: -0.5px;
         }
         .logo-placeholder, .logo-shadow{
-            @apply absolute inset-0 md:px-3 flex md:justify-center items-center;
+            @apply absolute inset-0 px-3 flex justify-center items-center;
             z-index: 1;
         }
         .logo-placeholder{
@@ -141,7 +142,7 @@ html{
             }
             
         }
-        &.current{
+        /* &.current{
             .logo-placeholder:before{
                 @apply opacity-100;
             }
@@ -151,7 +152,7 @@ html{
             .logo-shadow{
                 @apply opacity-70;
             }
-        }
+        } */
         &:hover{
             .logo-placeholder:before{
                 @apply opacity-50;

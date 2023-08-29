@@ -14,6 +14,7 @@ export default {
         main: resolve(__dirname, 'index.html'),
         "privacy-policy": resolve(__dirname, 'privacy-policy/index.html'),
         "termini-e-condizioni": resolve(__dirname, 'termini-e-condizioni/index.html'),
+        "404": resolve(__dirname, '404.html'),
       }
     }
   }

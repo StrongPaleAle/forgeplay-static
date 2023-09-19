@@ -59,7 +59,7 @@ export function formHandle(formid){
             }
         );
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         let formResult = document.getElementById('form_feedback');
         formResult.innerHTML = '';
 

@@ -13,7 +13,7 @@ export function alphaHandle(formid){
     
 
     acceptance.addEventListener('change', function(){
-        console.log('acceptance');
+        //console.log('acceptance');
         if(this.checked){
             submit.removeAttribute('disabled');
             isAccepted = true;
@@ -71,7 +71,7 @@ export function alphaHandle(formid){
             }
         );
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         
         newFeedback(data.success, data.message);
         

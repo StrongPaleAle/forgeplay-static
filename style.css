@@ -456,6 +456,7 @@ section.cube{
     filter: drop-shadow(0.25rem 0.25rem 0 var(--color-shadow));
     &__image{
         width: calc(100% - 2rem);
+        display: block;
         margin: 0 auto;
         overflow: hidden;
         position: relative;
@@ -652,7 +653,7 @@ section.cube{
 .dialog{
     @apply fixed inset-0 z-50 flex items-center justify-center isolate;
 
-    &:not(.open){
+    &:not(.open), &:not(:target){
         display: none;
     }
 

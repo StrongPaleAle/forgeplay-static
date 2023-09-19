@@ -18,11 +18,19 @@ if (document.body.classList.contains('home')){
         link.href = '/#home';
     });
 }
+if (window.location.hash) {
+    let hash = window.location.hash;
+    let target = document.querySelector(hash);
+    if (target.classList.contains('dialog')){
+        
+        openDialog(target);
+    }
+}
 const dialogTriggers = document.querySelectorAll('[data-dialog]');
 
 dialogTriggers.forEach(triggerWrapper => {
     const triggers = triggerWrapper.querySelectorAll('.dialog-open');
-    const defaultTrigger = triggerWrapper.querySelector('button.dialog-open');
+    
     const target = triggerWrapper.dataset.dialog;
     //console.log(triggers.length);
 
@@ -33,53 +41,60 @@ dialogTriggers.forEach(triggerWrapper => {
             //console.log('click');
             
             const dialog = document.getElementById(target);
-            const dialogElements = 'input:not([disabled]), button:not([disabled])';
-            const focusableElements = dialog.querySelectorAll(dialogElements);
-
-            const firstFocusableElement = focusableElements[0];
-            const lastFocusableElement = focusableElements[focusableElements.length - 1];
-
-            
-
-            dialog.classList.add('open');
-            dialog.setAttribute("tabindex", "-1");
-            dialog.focus();
-            
-            dialog.addEventListener('keydown', (event) => {
-
-                // handle TAB key
-                if (event.key === "Tab") {
-                    if (document.activeElement === lastFocusableElement) {
-                    event.preventDefault();
-                    firstFocusableElement.focus();
-                    }
-                }
-                // handle ESCAPE key to close the modal
-                if (event.key === "Escape" || event.key === "Esc") {
-                    dialog.classList.remove('open');
-                    dialog.removeAttribute("tabindex");
-                    // Focus to the register button (the last focus before modal was opened)
-                    defaultTrigger.focus();
-
-                }
-            });
-            setTimeout(function() {
-
-                mountDialogGallery(dialog);
-            }, 200);
-            
-            dialog.querySelectorAll('.dialog-close').forEach(close => {
-                close.addEventListener('click', () => {
-                    dialog.classList.remove('open');
-                    dialog.removeAttribute("tabindex");
-                    defaultTrigger.focus();
-                });
-            });
+            openDialog(dialog);
 
         });
     });
     
 });
+
+function openDialog(dialog){
+    const dialogElements = 'input:not([disabled]), button:not([disabled])';
+    const focusableElements = dialog.querySelectorAll(dialogElements);
+    const toFocus = document.querySelector('h3 a[href="#' + dialog.id + '"]');
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+    //console.log(toFocus);
+
+    dialog.classList.add('open');
+    dialog.setAttribute("tabindex", "-1");
+    dialog.focus();
+    
+    dialog.addEventListener('keydown', (event) => {
+
+        // handle TAB key
+        if (event.key === "Tab") {
+            if (document.activeElement === lastFocusableElement) {
+            event.preventDefault();
+            firstFocusableElement.focus();
+            }
+        }
+        // handle ESCAPE key to close the modal
+        if (event.key === "Escape" || event.key === "Esc") {
+            dialog.classList.remove('open');
+            window.location.hash = 'games';
+            dialog.removeAttribute("tabindex");
+            // Focus to the register button (the last focus before modal was opened)
+            toFocus.focus();
+
+        }
+    });
+    setTimeout(function() {
+
+        mountDialogGallery(dialog);
+    }, 200);
+    
+    dialog.querySelectorAll('.dialog-close').forEach(close => {
+        close.addEventListener('click', () => {
+            dialog.classList.remove('open');
+            window.location.hash = 'games';
+            dialog.removeAttribute("tabindex");
+            toFocus.focus();
+        });
+    });
+}
+
 function mountDialogGallery(parent){
     var elms = parent.getElementsByClassName( 'splide' );
 
@@ -88,7 +103,7 @@ function mountDialogGallery(parent){
         const thisSplide = elms[i];
 
         if (thisSplide.classList.contains('is-initialized')){
-            console.log('splide already active');
+            //console.log('splide already active');
             continue;
         } else{
 
@@ -111,7 +126,7 @@ function mountDialogGallery(parent){
                     
                 // })
             });
-            console.log('activation splide');
+            //console.log('activation splide');
             new Splide( thisSplide, {
                 type     : 'loop',
                 focus    : 'center',
@@ -138,7 +153,7 @@ menuToggle.addEventListener('click', () => {
 });
 menuLinks.forEach(link => {
     link.addEventListener('click', () => {
-        console.log('click');
+        //console.log('click');
         menu.classList.remove('open');
         menuToggle.classList.remove('active');
         logoNav.classList.remove('active');

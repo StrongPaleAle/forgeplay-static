@@ -72,25 +72,18 @@ function openDialog(dialog){
         }
         // handle ESCAPE key to close the modal
         if (event.key === "Escape" || event.key === "Esc") {
-            dialog.classList.remove('open');
-            window.location.hash = 'games';
-            dialog.removeAttribute("tabindex");
-            // Focus to the register button (the last focus before modal was opened)
-            toFocus.focus();
+            closeDialog(dialog);
 
         }
     });
     setTimeout(function() {
 
-        mountDialogGallery(dialog);
+        mountDialogGallery(dialog, toFocus);
     }, 200);
     
     dialog.querySelectorAll('.dialog-close').forEach(close => {
         close.addEventListener('click', () => {
-            dialog.classList.remove('open');
-            window.location.hash = 'games';
-            dialog.removeAttribute("tabindex");
-            toFocus.focus();
+            closeDialog(dialog, toFocus);
         });
     });
 }
@@ -127,7 +120,7 @@ function mountDialogGallery(parent){
                 // })
             });
             //console.log('activation splide');
-            new Splide( thisSplide, {
+            const splide = new Splide( thisSplide, {
                 type     : 'loop',
                 focus    : 'center',
                 autoWidth: true,
@@ -136,6 +129,14 @@ function mountDialogGallery(parent){
                     640: { autoWidth: false, perPage: 1, gap: '0rem', type: 'slide' },
                 },
             }  ).mount();
+
+            splide.on( 'inactive', function (Slide) {
+                // This will be executed.
+                Slide.slide.querySelectorAll('video').forEach(video => {
+                    video.pause();
+                });
+            } );
+
 
         }
         
@@ -205,3 +206,15 @@ const showOnScroll = document.querySelectorAll('.show-on-scroll');
 showOnScroll.forEach((ele) => {
     elemObserver.observe(ele);
 });
+
+function closeDialog(dialog, toFocus){
+    dialog.classList.remove('open');
+    dialog.querySelectorAll('.splide__slide.is-active video').forEach(video => {
+        video.pause();
+    });
+    window.location.hash = 'games';
+    dialog.removeAttribute("tabindex");
+    // Focus to the register button (the last focus before modal was opened)
+    toFocus.focus();
+    
+}

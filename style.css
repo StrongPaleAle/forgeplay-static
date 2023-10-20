@@ -873,6 +873,12 @@ form{
         }
     }
 }
+.image-checkbox{
+    text-align: center;
+}
+.image-checkbox :checked + label {
+  border: 3px solid #ddd;
+}
 @keyframes pop {
     0% {
         opacity: 0;

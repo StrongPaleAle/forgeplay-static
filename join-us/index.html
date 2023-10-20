@@ -73,10 +73,187 @@
       <section id="home" class="menu-section py-40 px-6 flex justify-center items-center bg-gray-800 lg:py-48">
         <div class="text-center">
           
-          <h1 class="uppercase text-4xl">Welcome Traveller</h1>
+          <p class="uppercase text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold drop-shadow-md">Welcome Traveller</p>
           
         </div>
         <div class="end-shadow" aria-hidden="true"></div>
+      </section>
+      <section class="bg-abyss py-40 px-6 flex justify-center items-center">
+        <div class="container mx-auto">
+          <div class="max-w-prose text-lg md:text-xl lg:text-2xl">
+            <h1 class="uppercase text-5xl font-bold mb-8">Unisciti al Test</h1>
+            <p>
+              Aiutaci a rendere migliori i nostri giochi. Scegli i giochi che ti piacciono di più e compila il form. Quando il gioco sarà pronto per la fase di test verrai contattato per provarlo. </p>
+              
+              <p class="mt-6 mb-4">
+                Un giorno potrai dire: 
+              <strong class="block text-xl md:text-2xl lg:text-3xl text-primary">"Io c'ero da subito!"</strong>
+            </p>
+
+
+          </div>
+          <div>
+            <form id="contact-form" class="forge-in show-on-scroll" aria-labelledby="form-title">
+              <div class="grid grid-cols-1 gap-6">
+                <h3 id="form-title" class="text-2xl heading uppercase font-bold">Iscriviti</h3>
+                
+
+                <label class="block" for="form_nickname" aria-hidden="true">
+                  <span class="text-white">Nickname <span class="sr-only">(required):</span></span>
+                  <input type="text" class="
+                      mt-0
+                      bg-abyss-900
+                      block
+                      w-full
+                      px-0.5
+                      border-0 border-b-2 border-primary
+                      focus:ring-0 focus:border-primary-700
+                      
+                    " 
+                    placeholder="The name you like"
+                    id="form_nickname"
+                    name="form_nickname"
+                    tabindex="-1" autocomplete="off">
+                </label>
+                <fieldset class="flex flex-col md:flex-row">
+                  <legend class="text-white">Scegli i giochi<span class="sr-only"></span></legend>
+                  <div class="image-checkbox flex-1">
+                    <input type="checkbox" id="form_tutam" class="sr-only">
+                    <label class="text-xl block" for="form_tutam">
+                      
+                      <picture>
+                        <source srcset="/assets/images/tutam/tutam_cover.webp" type="image/webp" width="150" height="150">
+                        <source srcset="/assets/images/tutam/tutam_cover.jpg" type="image/jpeg" width="150" height="150">
+                        <img src="/assets/images/tutam/tutam_cover.jpg" alt="TuTam Cover" loading="lazy" width="150" height="150">
+                      </picture>
+                      
+                      <span>Tutam</span>
+                    </label>
+                    
+                  </div>
+                  <div class="image-checkbox flex-1">
+                    <input type="checkbox" id="form_laserchickens" class="sr-only">
+                    <label class="text-xl block text-center" for="form_laserchickens">
+                      
+                      <picture>
+                        <source srcset="/assets/images/laser-chickens/laser_chickens_cover.webp" type="image/webp" width="150" height="150">
+                        <source srcset="/assets/images/laser-chickens/laser_chickens_cover.jpg" type="image/jpeg" width="150" height="150">
+                        <img src="/assets/images/laser-chickens/laser_chickens_cover.jpg" alt="Laser Chickens cover" loading="lazy" width="150" height="150">
+                      </picture>
+                      
+                      <span>Laser Chickens</span>
+                    </label>
+                    
+                  </div>
+                  <div class="image-checkbox flex-1">
+                    <input type="checkbox" id="form_candy_math" class="sr-only">
+                    <label class="text-xl block text-center" for="form_candy_math">
+                      
+                      <picture>
+                        <source srcset="/assets/images/candy-math/candy_math_cover.webp" type="image/webp" width="150" height="150">
+                        <source srcset="/assets/images/candy-math/candy_math_cover.jpg" type="image/jpeg" width="150" height="150">
+                        <img src="/assets/images/candy-math/candy_math_cover.jpg" alt="Folklory cover" loading="lazy" width="150" height="150">
+                      </picture>
+                      
+                      <span>Candy Math Land</span>
+                    </label>
+                    
+                  </div>
+                  <div class="image-checkbox flex-1">
+                    <input type="checkbox" id="form_folklory" class="sr-only">
+                    <label class="text-xl block text-center" for="form_folklory">
+                      
+                      <picture>
+                        <source srcset="/assets/images/folklory/folklory_cover.webp" type="image/webp" width="150" height="150">
+                        <source srcset="/assets/images/folklory/folklory_cover.jpg" type="image/jpeg" width="150" height="150">
+                        <img src="/assets/images/folklory/folklory_cover.jpg" alt="Folklory cover" loading="lazy" width="150" height="150">
+                      </picture>
+                      
+                      <span>Folklory</span>
+                    </label>
+                    
+                  </div>
+                  <div class="image-checkbox flex-1">
+                    <input type="checkbox" id="form_puzzle_game" class="sr-only">
+                    <label class="text-xl block text-center" for="form_puzzle_game">
+                      
+                      <picture>
+                        <source srcset="/assets/images/puzzle-game/puzzle_cover.webp" type="image/webp" width="150" height="150">
+                        <source srcset="/assets/images/puzzle-game/puzzle_cover.jpg" type="image/jpeg" width="150" height="150">
+                        <img src="/assets/images/puzzle-game/puzzle_cover.jpg" alt="Folklory cover" loading="lazy" width="150" height="150">
+                      </picture>
+                      
+                      <span>Puzzle Game</span>
+                    </label>
+                    
+                  </div>
+                  
+                </fieldset>
+
+                <label class="block" for="form_email">
+                  <span class="text-white">Email address <span class="sr-only">(required):</span></span>
+                  <input type="email" class="
+                      mt-0
+                      bg-abyss-900
+                      block
+                      w-full
+                      px-0.5
+                      border-0 border-b-2 border-primary
+                      focus:ring-0 focus:border-primary-700
+                      
+                    " 
+                    placeholder="john@example.com"
+                    id="form_email"
+                    name="form_email"
+                    required aria-required="true">
+                </label>
+
+                
+                <div class="block">
+                  <div class="mt-2">
+                    <div>
+                      <label class="inline-flex items-center" for="form_acceptance">
+                        <input type="checkbox" class="
+                            border-primary border-2
+                            text-primary-700
+                            focus:border-primare focus:border-primary-700
+                            acceptance-checkbox
+                          "
+                          name="form_acceptance"
+                          id="form_acceptance"
+                          required aria-required="true">
+                        <span class="ml-2">I have read and agree to forgeplay <a class="underline hover:text-primary" href="/privacy-policy">Privacy Policy</a></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <template id="form_feedback_template">
+                      <div class="form_feedback-wrapper mt-6">
+                        <div class="feedback-box text-sm" role="alert">
+                          <p class="form_feedback_message"></p>
+                        </div>
+                      </div>
+                    </template>
+                    <template id="error-list">
+                      <ul class="list-disc mt-3"></ul>
+                    </template>
+                    <div id="form_feedback">
+
+                    </div>
+                  </div>
+                  <div class="block text-right mt-10">
+                    <button type="submit" class="btn btn--primary w-40 text-lg" disabled>
+                      <span>Join</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+        
+        </div>
+        
       </section>
 
     </main>

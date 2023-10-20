@@ -191,7 +191,7 @@ const getIn = (entries, observer) => {
 }
 // init the observer
 const options = {
-	rootMargin: "0px 0px -50% 0px"
+	rootMargin: "-30% 0px -30% 0px"
 }
 
 const observer = new IntersectionObserver(changeNav, options);

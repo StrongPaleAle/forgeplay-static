@@ -4,6 +4,7 @@ export default {
     "./*.{html,js}",
     "./privacy-policy/*.{html,js,hbs}",
     "./termini-e-condizioni/*.{html,js,hbs}",
+    "./join-us/*.{html,js,hbs}",
     "./partials/*.{html,js,hbs}"
   ],
   theme: {

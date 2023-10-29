@@ -94,8 +94,8 @@
           </div>
           <div>
             <form id="contact-form" class="forge-in show-on-scroll" aria-labelledby="form-title">
-              <div class="grid grid-cols-1 gap-6">
-                <h3 id="form-title" class="text-2xl heading uppercase font-bold">Iscriviti</h3>
+              <div class="w-max max-w-full grid grid-cols-1 gap-10 ml-auto bg-gray-800 p-4 md:p-8 lg:px-10 xl:px-12">
+                <h3 id="form-title" class="text-xl md:text-2xl lg:text-3xl text-primary heading uppercase font-bold">Iscriviti</h3>
                 
 
                 <label class="block" for="form_nickname" aria-hidden="true">
@@ -115,9 +115,9 @@
                     name="form_nickname"
                     tabindex="-1" autocomplete="off">
                 </label>
-                <fieldset class="flex flex-col md:flex-row">
-                  <legend class="text-white">Scegli i giochi<span class="sr-only"></span></legend>
-                  <div class="image-checkbox flex-1">
+                <fieldset class="games-fieldset flex flex-row flex-wrap gap-4 justify-center p-6 border-2 border-primary bg-abyss-900">
+                  <legend class="text-white px-2">Scegli fino a 2 giochi<span class="sr-only"></span></legend>
+                  <div class="image-checkbox">
                     <input type="checkbox" id="form_tutam" class="sr-only">
                     <label class="text-xl block" for="form_tutam">
                       
@@ -131,7 +131,7 @@
                     </label>
                     
                   </div>
-                  <div class="image-checkbox flex-1">
+                  <div class="image-checkbox">
                     <input type="checkbox" id="form_laserchickens" class="sr-only">
                     <label class="text-xl block text-center" for="form_laserchickens">
                       
@@ -145,7 +145,7 @@
                     </label>
                     
                   </div>
-                  <div class="image-checkbox flex-1">
+                  <div class="image-checkbox">
                     <input type="checkbox" id="form_candy_math" class="sr-only">
                     <label class="text-xl block text-center" for="form_candy_math">
                       
@@ -159,7 +159,7 @@
                     </label>
                     
                   </div>
-                  <div class="image-checkbox flex-1">
+                  <div class="image-checkbox">
                     <input type="checkbox" id="form_folklory" class="sr-only">
                     <label class="text-xl block text-center" for="form_folklory">
                       
@@ -173,7 +173,7 @@
                     </label>
                     
                   </div>
-                  <div class="image-checkbox flex-1">
+                  <div class="image-checkbox">
                     <input type="checkbox" id="form_puzzle_game" class="sr-only">
                     <label class="text-xl block text-center" for="form_puzzle_game">
                       
@@ -191,17 +191,8 @@
                 </fieldset>
 
                 <label class="block" for="form_email">
-                  <span class="text-white">Email address <span class="sr-only">(required):</span></span>
-                  <input type="email" class="
-                      mt-0
-                      bg-abyss-900
-                      block
-                      w-full
-                      px-0.5
-                      border-0 border-b-2 border-primary
-                      focus:ring-0 focus:border-primary-700
-                      
-                    " 
+                  <span class="text-white text-lg">Inserisci la tua email <span class="sr-only">(required):</span></span>
+                  <input type="email" class=" mt-0 block w-full" 
                     placeholder="john@example.com"
                     id="form_email"
                     name="form_email"
@@ -213,12 +204,7 @@
                   <div class="mt-2">
                     <div>
                       <label class="inline-flex items-center" for="form_acceptance">
-                        <input type="checkbox" class="
-                            border-primary border-2
-                            text-primary-700
-                            focus:border-primare focus:border-primary-700
-                            acceptance-checkbox
-                          "
+                        <input type="checkbox" class="acceptance-checkbox"
                           name="form_acceptance"
                           id="form_acceptance"
                           required aria-required="true">
@@ -243,7 +229,7 @@
                   </div>
                   <div class="block text-right mt-10">
                     <button type="submit" class="btn btn--primary w-40 text-lg" disabled>
-                      <span>Join</span>
+                      <span>Invia</span>
                     </button>
                   </div>
                 </div>

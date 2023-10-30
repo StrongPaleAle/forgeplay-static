@@ -10,6 +10,9 @@ if (document.getElementById('contact-form')){
 if (document.getElementById('alpha-form')){
     alphaHandle('alpha-form');
 }
+if (document.getElementById('test-form')){
+    alphaHandle('test-form');
+}
 
 if (document.body.classList.contains('home')){
     const homeLinks = document.querySelectorAll('.home-link');

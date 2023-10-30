@@ -780,7 +780,7 @@ section.cube{
     }
 }
 
-#contact-form{
+form{
     .block[for="form_nickname"]{
         display: none;
     }
@@ -892,6 +892,10 @@ form{
     --color-opacity: 0;
     --_icon-opacity: 0;
     position: relative;
+    
+}
+.image-checkbox label {
+    cursor:pointer;
 }
 .image-checkbox label img{
     
@@ -950,8 +954,12 @@ form{
     align-items: center;
 }
 
-.games-fieldset{
+.games-fieldset.maxed-out .image-checkbox:not(.checked) {
     
+    cursor: not-allowed;
+}
+.games-fieldset.maxed-out .image-checkbox:not(.checked) > * {
+    pointer-events: none;
 }
 @keyframes pop {
     0% {

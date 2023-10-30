@@ -1,7 +1,13 @@
 export function alphaHandle(formid){
     const form = document.getElementById(formid);
     //console.log(form);
-    const acceptance = form.querySelector('input#alpha_acceptance');
+    const formGames = form.querySelector('.games-fieldset');
+    const formGamesChecks = formGames.querySelectorAll('input[type="checkbox"]');
+    
+
+
+
+    const acceptance = form.querySelector('input#test_acceptance');
     const submit = form.querySelector('button[type="submit"]');
     let isAccepted = false;
 
@@ -9,7 +15,22 @@ export function alphaHandle(formid){
     
     const feedbackTemplate = document.getElementById('form_feedback_template');
 
-    
+    formGamesChecks.forEach(function(checkbox){
+        checkbox.addEventListener('change', function(){
+            if(this.checked){
+                this.parentNode.classList.add('checked');
+            } else {
+                this.parentNode.classList.remove('checked');
+            }
+            const checked = formGames.querySelectorAll('input[type="checkbox"]:checked');
+            if(checked.length < 2){
+                console.log('not maxed out');
+                formGames.classList.remove('maxed-out');
+            } else {
+                formGames.classList.add('maxed-out');
+            }
+        });
+    });
     
 
     acceptance.addEventListener('change', function(){
@@ -29,22 +50,22 @@ export function alphaHandle(formid){
         if(!isAccepted){
             return;
         }
-        const email = form.alpha_email.value;
-        const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-        if (!regex.test(email)) {
-            
-            newFeedback(false, 'Please enter a valid gmail address');
-            form.alpha_email.focus();
-            return;
-        } else {
+        const nickname = form.test_nickname.value;
+        const email = form.test_email.value;
+        const gamesChecked = formGames.querySelectorAll('input[type="checkbox"]:checked');
+        const games = [];
+        gamesChecked.forEach(function(game){
+            games.push(game.value);
+         });
         
-        
-            const formattedFormData = {
-                email: email
-            }
-            postData(formattedFormData);
-        //console.log(formattedFormData);
+        const formattedFormData = {
+            nickname: nickname,
+            email: email,
+            games: games,
+            acceptance: isAccepted
         }
+        postData(formattedFormData);
+        
     });
 
     function newFeedback(isSuccess, message){

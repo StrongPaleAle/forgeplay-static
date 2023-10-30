@@ -93,7 +93,7 @@
 
           </div>
           <div>
-            <form id="contact-form" class="forge-in show-on-scroll" aria-labelledby="form-title">
+            <form id="test-form" class="forge-in show-on-scroll" aria-labelledby="form-title">
               <div class="w-max max-w-full grid grid-cols-1 gap-10 ml-auto bg-gray-800 p-4 md:p-8 lg:px-10 xl:px-12">
                 <h3 id="form-title" class="text-xl md:text-2xl lg:text-3xl text-primary heading uppercase font-bold">Iscriviti</h3>
                 
@@ -118,7 +118,7 @@
                 <fieldset class="games-fieldset flex flex-row flex-wrap gap-4 justify-center p-6 border-2 border-primary bg-abyss-900">
                   <legend class="text-white px-2">Scegli fino a 2 giochi<span class="sr-only"></span></legend>
                   <div class="image-checkbox">
-                    <input type="checkbox" id="form_tutam" class="sr-only">
+                    <input type="checkbox" id="form_tutam" value="tutam" class="sr-only">
                     <label class="text-xl block" for="form_tutam">
                       
                       <picture>
@@ -132,7 +132,7 @@
                     
                   </div>
                   <div class="image-checkbox">
-                    <input type="checkbox" id="form_laserchickens" class="sr-only">
+                    <input type="checkbox" id="form_laserchickens" value="laser-chickens" class="sr-only">
                     <label class="text-xl block text-center" for="form_laserchickens">
                       
                       <picture>
@@ -146,7 +146,7 @@
                     
                   </div>
                   <div class="image-checkbox">
-                    <input type="checkbox" id="form_candy_math" class="sr-only">
+                    <input type="checkbox" id="form_candy_math" value="candy-math" class="sr-only">
                     <label class="text-xl block text-center" for="form_candy_math">
                       
                       <picture>
@@ -160,7 +160,7 @@
                     
                   </div>
                   <div class="image-checkbox">
-                    <input type="checkbox" id="form_folklory" class="sr-only">
+                    <input type="checkbox" id="form_folklory" value="folklory" class="sr-only">
                     <label class="text-xl block text-center" for="form_folklory">
                       
                       <picture>
@@ -174,7 +174,7 @@
                     
                   </div>
                   <div class="image-checkbox">
-                    <input type="checkbox" id="form_puzzle_game" class="sr-only">
+                    <input type="checkbox" id="form_puzzle_game" value="puzzle-game" class="sr-only">
                     <label class="text-xl block text-center" for="form_puzzle_game">
                       
                       <picture>
@@ -190,12 +190,12 @@
                   
                 </fieldset>
 
-                <label class="block" for="form_email">
+                <label class="block" for="test_email">
                   <span class="text-white text-lg">Inserisci la tua email <span class="sr-only">(required):</span></span>
                   <input type="email" class=" mt-0 block w-full" 
                     placeholder="john@example.com"
-                    id="form_email"
-                    name="form_email"
+                    id="test_email"
+                    name="test_email"
                     required aria-required="true">
                 </label>
 
@@ -203,10 +203,10 @@
                 <div class="block">
                   <div class="mt-2">
                     <div>
-                      <label class="inline-flex items-center" for="form_acceptance">
+                      <label class="inline-flex items-center" for="test_acceptance">
                         <input type="checkbox" class="acceptance-checkbox"
                           name="form_acceptance"
-                          id="form_acceptance"
+                          id="test_acceptance"
                           required aria-required="true">
                         <span class="ml-2">I have read and agree to forgeplay <a class="underline hover:text-primary" href="/privacy-policy">Privacy Policy</a></span>
                       </label>

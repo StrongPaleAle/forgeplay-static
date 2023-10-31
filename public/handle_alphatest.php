@@ -1,61 +1,5 @@
 <?php
-$data = json_decode(file_get_contents('php://input'), true);
-$honeypot = $data['nickname'];
-$sanitizedHoney = filter_var($honeypot, FILTER_SANITIZE_STRING);
 
-if ($sanitizedHoney || $sanitizedHoney != '') {
-
-    header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
-    exit;
-} else {
-    // create result array
-    $result = [
-        'errors' => [],
-        'success' => false,
-        'message' => ''
-    ];
-    
-    // sanitize the data and check for errors
-    
-    $email = $data['email'];
-       
-
-    $sanitizedEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
-    if (!$sanitizedEmail || $sanitizedEmail == '' || !filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
-
-        $result['message'] = 'Please enter a valid email';
-        header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-        echo json_encode($result);
-        exit;
-
-    } else {
-        // check file existence
-        if (!file_exists("emails.txt")){
-            touch("emails.txt");
-        }
-        $file = "emails.txt";
-		$current = file_get_contents($file);
-		// check if mail is present
-		if(strpos($current, $email)) 
-		{
-			// return error message
-		   $result['message'] = 'You are already subscribed!';
-		   echo json_encode($result);
-		   exit;
-		} else {
-			
-			$current .= $email . ",\n";
-			file_put_contents($file, $current);
-			// return success message
-	        $result['success'] = true;
-	        $result['message'] = 'Thanks for subscribing!';
-	        echo json_encode($result);
-	        exit;
-
-		}
-
-    }
-}
 $data = json_decode(file_get_contents('php://input'), true);
 
 // check the honeypot
@@ -67,6 +11,17 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
     header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
     exit;
 } else {
+    // create an array to store errors
+    $files = [ 
+        'tutam' => 'tutam.txt', 
+        'laser-chickens' => 'laser-chickens.txt', 
+        'candy-math' => 'candy-math.txt',
+        'folklory' => 'folklory.txt',
+        'puzzle-game' => 'puzzle-game.txt'
+    ];
+
+    $subscriptions = array();
+
     // create result array
     $result = [
         'errors' => [],
@@ -78,67 +33,88 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
     
     $email = $data['email'];
     $games = $data['games'];
-    $message = $data['acceptance'];
-
+    $acceptance = $data['acceptance'];
+    
     $gamesArray = array();
-
-    // $games.forEach(function(game) {
-    //     $sanitizedGame = filter_var($game, FILTER_SANITIZE_STRING);
-    //     if (!$sanitizedGame || $sanitizedGame == '') {
-    //         $result['errors'][] = 'Please enter a game';
-    //     } else {
-    //         $gamesArray[] = $sanitizedGame;
-    //     }
-    // });
 
     $sanitizedEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
     if (!$sanitizedEmail || $sanitizedEmail == '' || !filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
-        $result['errors'][] = 'Please enter a valid email';
+        $result['errors'][] = 'Inserisci una email valida';
+    } else {
+        // check if email is already present
+        foreach ($files as $key => $file) {
+            $current = file_get_contents($file);
+            if(strpos($current, $sanitizedEmail)) 
+            {
+                $subscriptions[] = $key;
+            }
+        }
+    }
+    $subsLength = count($subscriptions);
+
+    if ($subsLength == 2) {
+        $result['errors'][] = 'Ti sei già iscritto al test di due giochi in passato';
+    } else {
+        foreach ($games as $game) {
+            $sanitizedGame = filter_var($game, FILTER_SANITIZE_STRING);
+            if ($sanitizedGame || $sanitizedGame != '' || !in_array($sanitizedGame, $subscriptions)) {
+                $gamesArray[] = $sanitizedGame;
+            }
+        }
+        
+        $gamesLength = count($gamesArray);
+
+        if ($gamesLength == 0) {
+            $result['errors'][] = 'Seleziona almeno un gioco';
+        } else if ($subsLength == 1 && $gamesLength > 1) {
+            $result['errors'][] = 'Ti sei già iscritto al test di un gioco in passato. Puoi selezionare al massimo un altro gioco';
+        }
+    }
+    
+    
+
+    
+    
+    
+
+    $sanitizedEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
+    if (!$sanitizedEmail || $sanitizedEmail == '' || !filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
+        $result['errors'][] = 'Inserisci una email valida';
+    } 
+
+    if (!$acceptance || $acceptance != 'true') {
+        $result['errors'][] = 'Devi accettare i termini e le condizioni';
     }
 
-    $sanitizedObject = filter_var($object, FILTER_SANITIZE_STRING);
-    if (!$sanitizedObject || $sanitizedObject == '') {
-        $result['errors'][] = 'Please enter an object';
-    }
-
-    $sanitizedMessage = filter_var($message, FILTER_SANITIZE_STRING);
-    if (!$sanitizedMessage || $sanitizedMessage == '') {
-        $result['errors'][] = 'Please enter a message';
-    }
     // if there are errors, return the errors
     if (count($result['errors']) > 0) {
         // return the errors
         header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-        $result['message'] = 'There are errors in the form';
+        $result['message'] = 'Sono presenti errori nella form';
         echo json_encode($result);
         exit;
     } else {
-        // send the email
-        $email_message = "Hai ricevuto un nuovo messaggio dal sito di Forgeplay" . "\n\n"
-                . "Nome: " . $sanitizedName . "\n\n"
-                . "Email: " . $sanitizedEmail . "\n\n"
-                . "Messaggio:\n" . $sanitizedMessage;
-  
-        $to = 'info@forgeplay.it';
-    
-        $subject = 'Nuovo messaggio Forgeplay: ' . $sanitizedObject;
-        
-        $headers = 'From: noreply@' . $_SERVER['HTTP_HOST'] ."\r\n" .
-        'Reply-To: ' . $sanitizedEmail . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-    
-        $send_email = mail($to, $subject, $email_message, $headers);
-        if (!$send_email) {
-            header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error');
-            $result['message'] = 'There was a problem sending your email';
-            echo json_encode($result);
-            exit;
-        } else {
-            // return success message
-            $result['success'] = true;
-            $result['message'] = 'Form submitted successfully';
-            echo json_encode($result);
+        // check file existence
+        if (!file_exists("emails.txt")){
+            touch("emails.txt");
         }
+        $file = "emails.txt";
+		$current = file_get_contents($file);
+        foreach ($gamesArray as $game) {
+            $file = $files[$game];
+            $current = file_get_contents($file);
+            $current .= $sanitizedEmail . ",\n";
+			file_put_contents($file, $current);
+			// return success message
+	        
+        }
+
+        $result['success'] = true;
+        $result['message'] = 'Iscrizione effettuata con successo!';
+        echo json_encode($result);
+        exit;
+		
+        
         
     }
     

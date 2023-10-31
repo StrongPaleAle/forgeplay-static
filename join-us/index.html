@@ -66,35 +66,52 @@
     
 
   </head>
-  <body class="home">
+  <body class="join-us">
     <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
     {{> header }}
     <main id="main">
-      <section id="home" class="menu-section py-40 px-6 flex justify-center items-center bg-gray-800 lg:py-48">
+      <section id="cover" class="menu-section py-60 px-6 flex justify-center items-center  lg:py-80 relative">
         <div class="text-center">
           
-          <p class="uppercase text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold drop-shadow-md">Welcome Traveller</p>
+          <p class="exclusive text-primary uppercase text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold">Welcome Traveller</p>
           
         </div>
         <div class="end-shadow" aria-hidden="true"></div>
       </section>
-      <section class="bg-abyss py-40 px-6 flex justify-center items-center">
+      <section class="description-section bg-abyss py-20 px-6 flex justify-center items-center border-b-8 border-secondary-600">
+        
         <div class="container mx-auto">
-          <div class="max-w-prose text-lg md:text-xl lg:text-2xl">
-            <h1 class="uppercase text-5xl font-bold mb-8">Unisciti al Test</h1>
+          <div class="max-w-prose text-lg md:text-xl lg:text-2xl mx-auto text-center">
+            <h1 class="uppercase text-5xl font-bold mb-8 text-primary">Unisciti al Test</h1>
             <p>
-              Aiutaci a rendere migliori i nostri giochi. Scegli i giochi che ti piacciono di più e compila il form. Quando il gioco sarà pronto per la fase di test verrai contattato per provarlo. </p>
+              <strong class="block mb-2">Aiutaci a rendere migliori i nostri giochi.</strong> Scegli i <a href="/#games" class="text-primary-200 hover:text-primary underline">giochi</a> che ti piacciono di più e compila il form. Quando il gioco sarà pronto per la fase di test verrai contattato per provarlo. Che ci guadagni?</p>
               
               <p class="mt-6 mb-4">
-                Un giorno potrai dire: 
-              <strong class="block text-xl md:text-2xl lg:text-3xl text-primary">"Io c'ero da subito!"</strong>
+                La gloria di un giorno poter dire: 
+              <strong class="block text-xl md:text-2xl lg:text-3xl text-primary my-8">"Io c'ero da subito!"</strong>
             </p>
-
-
           </div>
-          <div>
+        </div>
+        <div class="trap-shadow end-trap" aria-hidden="true"></div>
+      </section>
+      <section class="description-section middle-section bg-abyss py-20 px-6 flex justify-center items-center border-y-8 border-secondary-600">
+        <div class="trap-shadow left-trap" aria-hidden="true"></div>
+        <div class="container mx-auto">
+          <div class="max-w-prose text-lg md:text-xl lg:text-2xl mx-auto text-center">
+            <p>Non ti basta? Vabè ci roviniamo...
+              <strong class="text-center block text-xl md:text-2xl lg:text-3xl text-primary my-12">
+                Avrai in omaggio contenuti 
+                <span class="exclusive block my-8 text-5xl md:text-6xl lg:text-8xl">ESCLUSIVI </span>per i partecipanti al test!
+              </strong>
+            </p>
+          </div>
+        </div>
+      </section>      
+
+
+          <section class="form-section">
             <form id="test-form" class="forge-in show-on-scroll" aria-labelledby="form-title">
-              <div class="w-max max-w-full grid grid-cols-1 gap-10 ml-auto bg-gray-800 p-4 md:p-8 lg:px-10 xl:px-12">
+              <div class="w-max max-w-full grid grid-cols-1 gap-10 mx-auto bg-gray-800 p-4 pb-6 md:p-8 md:pb-10 lg:px-10 xl:px-12 cube cube-rb cube-rb-md">
                 <h3 id="form-title" class="text-xl md:text-2xl lg:text-3xl text-primary heading uppercase font-bold">Iscriviti</h3>
                 
 
@@ -208,7 +225,7 @@
                           name="form_acceptance"
                           id="test_acceptance"
                           required aria-required="true">
-                        <span class="ml-2">I have read and agree to forgeplay <a class="underline hover:text-primary" href="/privacy-policy">Privacy Policy</a></span>
+                        <span class="ml-2">Ho letto ed accetto<a class="underline hover:text-primary" href="/privacy-policy">Privacy Policy</a> di ForgePlay</span>
                       </label>
                     </div>
                   </div>
@@ -235,12 +252,10 @@
                 </div>
               </div>
             </form>
-          </div>
+          </section>
           
         
-        </div>
         
-      </section>
 
     </main>
     {{> footer}}

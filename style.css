@@ -16,6 +16,7 @@ html{
     --color-shadow: hsl(var(--c-shadow));
     --slant: 0.5rem;
     --color-highlight: hsl(var(--c-highlight));
+    --slant: 0.5rem;
     scroll-behavior: smooth;
     color-scheme: dark;
     
@@ -32,7 +33,11 @@ input[type="checkbox"], input[type="radio"]{
     @apply border-primary border-2 text-secondary-600 focus:ring-secondary focus:border-secondary-500;
 }
 .cube{
-    --slant: 0.5rem;
+    
+    &:not(.menu__link){
+        filter: drop-shadow(0 0 0.25rem var(--color-shadow));
+    }
+    
     @apply relative;
     &:before, &:after{
         content: '';
@@ -339,6 +344,31 @@ input[type="checkbox"], input[type="radio"]{
         right: 0;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0.5rem 100%, 0.5rem calc(50% + 0.5rem), 0 50%);
     }
+}
+.trap-shadow{
+    position: absolute;
+    bottom:100%;
+    left: 70%;
+    width: 20%;
+    height: 3vw;
+    &:before, &:after{
+        content: '';
+        position: absolute;
+        inset: 0;
+        @apply bg-abyss;
+        clip-path: polygon(20% 0, 80% 0%, 100% 100%, 0 100%);
+    }
+    &:before{
+        translate: -6px -6px;
+        @apply bg-secondary-600;
+    }
+    
+}
+.trap-shadow.end-trap{
+    left: 10%;
+    top: 100%;
+    bottom: auto;
+    rotate: 180deg;
 }
 
 .logo, .logo-text{
@@ -960,6 +990,53 @@ form{
 }
 .games-fieldset.maxed-out .image-checkbox:not(.checked) > * {
     pointer-events: none;
+}
+
+.join-us #main{
+    background-image: url('/assets/images/joinus-bg.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.join-us .form-section{
+    background-image: linear-gradient(transparent, var(--color-abyss));
+    padding-top: 40rem;
+    .cube{
+        --slant: 1rem;
+        margin-right: var(--slant);
+        max-width: calc(100vw - var(--slant));
+        @media (max-width: 767.999px){
+            margin-right: 0;
+        }
+    }
+    
+}
+.join-us #cover{
+    background: radial-gradient(ellipse at center, var(--color-abyss) 0%,  transparent 100%);
+    osition: relative;
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        @apply h-36 bg-abyss;
+        clip-path: polygon(0 0, 10% 50%, 90% 50%, 100% 0, 100% 100%, 0 100%);
+    }
+}
+.exclusive{
+    text-shadow: -0.01em -0.01em 0  white, 0.02em 0.02em 0  var(--color-secondary), 0 0 0.5em var(--color-shadow);
+}
+.description-section{
+    filter: drop-shadow(0 0 0.25rem var(--color-shadow));
+}
+.description-section .exclusive{
+    text-shadow: -0.015em -0.015em 0  white, 0.03em 0.03em 0  var(--color-secondary), 0 0 0.75em var(--color-shadow);
+}
+.middle-section{
+    margin-top: 40rem;
 }
 @keyframes pop {
     0% {

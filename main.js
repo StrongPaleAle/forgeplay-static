@@ -174,11 +174,17 @@ const changeNav = (entries, observer) => {
 		// verify the element is intersecting
 		if(entry.isIntersecting) {
 			// remove old active class
-			document.querySelector('.current').classList.remove('current');
+            const current = document.querySelector('.current');
+            current ? current.classList.remove('current') : null;
+			
 			// get id of the intersecting section
-			var id = entry.target.getAttribute('id');
+			const id = entry.target.getAttribute('id');
+            console.log(id);
 			// find matching link & add appropriate class
-			var newLink = document.querySelector(`[href="/#${id}"]`).classList.add('current');
+			const newLink = document.querySelector(`[href="/#${id}"]`);
+
+            newLink ? newLink.classList.add('current') : null;
+
             entry.target.classList.add('on-screen');
 		}
 	});

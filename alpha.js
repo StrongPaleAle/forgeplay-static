@@ -68,16 +68,27 @@ export function alphaHandle(formid){
         
     });
 
-    function newFeedback(isSuccess, message){
+    function newFeedback(data){
+        let formResult = document.getElementById('form_feedback');
         formResult.innerHTML = '';
-        let formFeedback = feedbackTemplate.content.cloneNode(true);
+
+        let formFeedback = document.getElementById('form_feedback_template').content.cloneNode(true);
         let feedbackBox = formFeedback.querySelector('.feedback-box');
-        if(isSuccess){
+        
+        formFeedback.querySelector('.form_feedback_message').innerHTML = data.message;
+        if (data.success) {
             feedbackBox.classList.add('success');
         } else {
             feedbackBox.classList.add('error');
+            let list = document.getElementById('error-list').content.cloneNode(true);
+            data.errors.forEach(error => {
+                let listItem = document.createElement('li');
+                listItem.innerHTML = error;
+                list.appendChild(listItem);
+            });
+            feedbackBox.appendChild(list);
         }
-        formFeedback.querySelector('.form_feedback_message').innerHTML = message;
+
         formResult.appendChild(formFeedback);
     }
 
@@ -94,7 +105,7 @@ export function alphaHandle(formid){
         const data = await response.json();
         //console.log(data);
         
-        newFeedback(data.success, data.message);
+        newFeedback(data);
         
     }
 }

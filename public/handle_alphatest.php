@@ -43,7 +43,11 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
     } else {
         // check if email is already present
         foreach ($files as $key => $file) {
+            if (!file_exists($file)){
+                touch($file);
+            }
             $current = file_get_contents($file);
+
             if(strpos($current, $sanitizedEmail)) 
             {
                 $subscriptions[] = $key;
@@ -95,13 +99,12 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
         exit;
     } else {
         // check file existence
-        if (!file_exists("emails.txt")){
-            touch("emails.txt");
-        }
-        $file = "emails.txt";
-		$current = file_get_contents($file);
+        
         foreach ($gamesArray as $game) {
             $file = $files[$game];
+            if (!file_exists($file)){
+                touch($file);
+            }
             $current = file_get_contents($file);
             $current .= $sanitizedEmail . ",\n";
 			file_put_contents($file, $current);

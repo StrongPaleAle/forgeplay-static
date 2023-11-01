@@ -218,11 +218,12 @@ input[type="checkbox"], input[type="radio"]{
     }
 }
 .menu{
-    filter: drop-shadow(0.25rem 0.25rem 0 var(--color-shadow));
+    
     @apply fixed top-0 left-0 w-full h-full md:w-auto md:h-auto bg-abyss-900 bg-opacity-80 md:bg-transparent md:relative z-10 translate-x-full md:translate-x-0;
     transition: transform 0.2s ease-in-out;
     ul{
         overflow: hidden;
+        
         @media (min-width: 768px){
             padding-bottom: var(--slant);
             padding-right: var(--slant);
@@ -347,7 +348,7 @@ input[type="checkbox"], input[type="radio"]{
 }
 .trap-shadow{
     position: absolute;
-    bottom:100%;
+    bottom: calc(100% - 1px);
     left: 70%;
     width: 20%;
     height: 3vw;
@@ -366,7 +367,7 @@ input[type="checkbox"], input[type="radio"]{
 }
 .trap-shadow.end-trap{
     left: 10%;
-    top: 100%;
+    top: calc(100% - 1px);
     bottom: auto;
     rotate: 180deg;
 }
@@ -392,23 +393,26 @@ input[type="checkbox"], input[type="radio"]{
     
     isolation: isolate;
     span:not(.sr-only){
-        @apply block px-4 py-2   relative z-10;
+        @apply block relative z-10;
         transition: transform 0.2s ease-in-out;
         transform: translate(0);
+        padding: 0.5em 1em;
+        clip-path: polygon(0 0, calc(100% - 0.5em) 0, 100% 0.5em, 100% 100%, 0.5em 100%, 0 calc(100% - 0.5em));
     }
     &:before{
         content: '';
         display: block;
         position: absolute;
         inset: 0;
-        @apply bg-abyss;
+        @apply bg-abyss-950;
         z-index: -1;
-        transform: translate(0.25rem, 0.25rem);
+        transform: translate(0.25em, 0.25em);
         transition: transform 0.2s ease-in-out;
+        clip-path: polygon(0 0, calc(100% - 0.5em) 0, 100% 0.5em, 100% 100%, 0.5em 100%, 0 calc(100% - 0.5em));
     }
     &:hover{
         span{
-            transform: translate(0.25rem, 0.25rem);
+            transform: translate(0.25em, 0.25em);
             --tw-bg-opacity: 0.9;
         }
         
@@ -440,7 +444,7 @@ input[type="checkbox"], input[type="radio"]{
     }
     &--icon{
         span:not(.sr-only){
-            @apply px-2;
+            @apply p-2;
            
         }
     }
@@ -1008,13 +1012,17 @@ form{
         max-width: calc(100vw - var(--slant));
         @media (max-width: 767.999px){
             margin-right: 0;
+            max-width: 100%;
+        }
+        @media (min-width: 1024px){
+            margin-right: auto;
         }
     }
     
 }
 .join-us #cover{
     background: radial-gradient(ellipse at center, var(--color-abyss) 0%,  transparent 100%);
-    osition: relative;
+    position: relative;
     &:after{
         content: '';
         position: absolute;

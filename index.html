@@ -70,7 +70,16 @@
     <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
     {{> header }}
     <main id="main">
-      <section id="home" class="menu-section py-40 px-6 flex justify-center items-center bg-gray-800 lg:py-48">
+      <section id="home" class="menu-section py-40 px-6 flex justify-center items-center lg:py-48">
+        <div class="fixed-bg bg-gray-800 ">
+          <picture>
+            
+            <source srcset="/assets/images/cover.webp" type="image/webp" />
+            
+            
+            <img src="/assets/images/cover.jpg" alt="A hammer is hitting a gaming controller" />
+          </picture>
+        </div>
         <div class="text-center">
           <div class="logo mb-6 md:mb-8 lg:mb-10 xl:mb-12">
             {{> logoCover }}
@@ -248,7 +257,7 @@
           </a>
         </div>
       </section>
-      <section id="about" class="menu-section md:px-6 py-40  bg-gray-800 cube cube-rb cube-rb-md">
+      <section id="about" class="menu-section pb-40 md:px-6 xl:py-40  bg-gray-800 cube cube-rb cube-rb-md">
         <div class="container mx-auto">
           <div class="flex flex-col gap-12 xl:gap-24 xl:flex-row items-center">
             <div class="about-image max-w-3xl -ml-20 -mr-6 md:mx-0">

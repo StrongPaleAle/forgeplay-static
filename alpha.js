@@ -95,7 +95,7 @@ export function alphaHandle(formid){
     async function postData(formattedFormData){
         
         const response = await fetch(
-            'handle_alphatest.php',
+            '/handle_alphatest.php',
             {
                 method: 'POST',
                 

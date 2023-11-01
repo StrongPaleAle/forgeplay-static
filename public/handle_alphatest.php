@@ -26,7 +26,9 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
     $result = [
         'errors' => [],
         'success' => false,
-        'message' => ''
+        'message' => '',
+        'subscriptions' => [],
+        'formgames' => []
     ];
     
     // sanitize the data and check for errors
@@ -48,43 +50,50 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
             }
             $current = file_get_contents($file);
 
-            if(strpos($current, $sanitizedEmail)) 
+            if(strpos($current, $sanitizedEmail) !== false) 
             {
                 $subscriptions[] = $key;
+                $result['subscriptions'][] = $key;
             }
         }
     }
     $subsLength = count($subscriptions);
 
-    if ($subsLength == 2) {
+    if ($subsLength >= 2) {
         $result['errors'][] = 'Ti sei già iscritto al test di due giochi in passato';
     } else {
         foreach ($games as $game) {
             $sanitizedGame = filter_var($game, FILTER_SANITIZE_STRING);
-            if ($sanitizedGame || $sanitizedGame != '' || !in_array($sanitizedGame, $subscriptions)) {
+
+
+        if ($sanitizedGame && $sanitizedGame != '' && !in_array($sanitizedGame, $subscriptions) && array_key_exists($sanitizedGame, $files) ) {
+                $file = $files[$game];
+                if (!file_exists($file)){
+                    touch($file);
+                }
+                $current = file_get_contents($file);
+    
+                if(strpos($current, $sanitizedEmail)) 
+                {
+                    $subscriptions[] = $key;
+                    $result['subscriptions'][] = $key;
+                }
                 $gamesArray[] = $sanitizedGame;
+                $result['formgames'][] = $sanitizedGame;
             }
         }
         
         $gamesLength = count($gamesArray);
 
-        if ($gamesLength == 0) {
+        if ($gamesLength == 0 && $subsLength == 0) {
             $result['errors'][] = 'Seleziona almeno un gioco';
         } else if ($subsLength == 1 && $gamesLength > 1) {
             $result['errors'][] = 'Ti sei già iscritto al test di un gioco in passato. Puoi selezionare al massimo un altro gioco';
+        } else if ($subsLength == 1 && $gamesLength == 0) {
+            $result['errors'][] = 'Ti sei già iscritto al test di questo gioco in passato.';
         }
     }
     
-    
-
-    
-    
-    
-
-    $sanitizedEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
-    if (!$sanitizedEmail || $sanitizedEmail == '' || !filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
-        $result['errors'][] = 'Inserisci una email valida';
-    } 
 
     if (!$acceptance || $acceptance != 'true') {
         $result['errors'][] = 'Devi accettare i termini e le condizioni';

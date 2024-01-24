@@ -83,7 +83,7 @@ input[type="checkbox"], input[type="radio"]{
         left: 0;
         clip-path: polygon(0 0, 100% 0, 100% 100%, var(--slant) 100% );
     }
-    .cube-rb-md *{
+    .cube-rb-md > *{
         overflow: hidden;
     }
     
@@ -765,7 +765,7 @@ section.cube{
 @media (min-width: 640px){
     .dialog__content{
         max-width: 90vw;
-        max-height: calc(100vh - 1rem);
+        max-height: calc(100svh - 1rem);
     }
 }
 .dialog__content::-webkit-scrollbar {
@@ -795,7 +795,7 @@ section.cube{
 @media (min-width: 640px){
     .dialog__gallery picture, .dialog__gallery img{
 
-        max-height: 75vh;
+        max-height: 75svh;
         width: auto;
     }
 
@@ -1042,7 +1042,7 @@ form .feedback-box.error{
 } */
 .join-us .form-section{
     background-image: linear-gradient(transparent, var(--color-abyss));
-    padding-top: 60vh;
+    padding-top: 60lvh;
     
     
 }
@@ -1090,7 +1090,7 @@ form .feedback-box.error{
     text-shadow: -0.015em -0.015em 0  white, 0.03em 0.03em 0  var(--color-secondary), 0 0 0.75em var(--color-shadow);
 }
 .middle-section{
-    margin-top: 40rem;
+    margin-top: 60lvh;
 }
 @keyframes pop {
     0% {

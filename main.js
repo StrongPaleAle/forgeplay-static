@@ -1,11 +1,18 @@
 import '@splidejs/splide/css'
 import './style.css';
 import Splide from '@splidejs/splide';
-import { formHandle } from './form';
-import { alphaHandle } from './alpha';
+import { formHandle } from './js/form';
+import { alphaHandle } from './js/form/alphaForm';
 
 if (document.getElementById('contact-form')){
-    formHandle('contact-form');
+    const contactModel = {
+        name:   'form_name',
+        nickname: 'form_nickname',
+        email: 'form_email',
+        object: 'form_object',
+        message: 'form_message' 
+    }
+    formHandle('contact-form', contactModel, 'handle_contacts.php');
 }
 if (document.getElementById('alpha-form')){
     alphaHandle('alpha-form');
@@ -179,7 +186,7 @@ const changeNav = (entries, observer) => {
 			
 			// get id of the intersecting section
 			const id = entry.target.getAttribute('id');
-            console.log(id);
+            //console.log(id);
 			// find matching link & add appropriate class
 			const newLink = document.querySelector(`[href="/#${id}"]`);
 

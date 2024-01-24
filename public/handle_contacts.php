@@ -22,6 +22,7 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
     $email = $data['email'];
     $object = $data['object'];
     $message = $data['message'];
+    $acceptance = $data['acceptance'];
 
     $sanitizedName = filter_var($name, FILTER_SANITIZE_STRING);
     if (!$sanitizedName || $sanitizedName == '') {
@@ -42,6 +43,10 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
     if (!$sanitizedMessage || $sanitizedMessage == '') {
         $result['errors'][] = 'Please enter a message';
     }
+    if (!$acceptance || $acceptance != 'true') {
+        $result['errors'][] = 'You must accept the terms and conditions';
+    }
+
     // if there are errors, return the errors
     if (count($result['errors']) > 0) {
         // return the errors
@@ -56,7 +61,7 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
                 . "Email: " . $sanitizedEmail . "\n\n"
                 . "Messaggio:\n" . $sanitizedMessage;
   
-        $to = 'info@forgeplay.it';
+        $to = 'alessio.falchi90@gmail.com';
     
         $subject = 'Nuovo messaggio Forgeplay: ' . $sanitizedObject;
         

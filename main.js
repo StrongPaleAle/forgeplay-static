@@ -12,7 +12,7 @@ if (document.getElementById('contact-form')){
         object: 'form_object',
         message: 'form_message' 
     }
-    formHandle('contact-form', contactModel, 'handle_contacts.php');
+    formHandle('contact-form', contactModel, '/handle_contacts.php');
 }
 if (document.getElementById('alpha-form')){
     alphaHandle('alpha-form');

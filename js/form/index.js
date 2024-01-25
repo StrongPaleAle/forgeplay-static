@@ -22,19 +22,19 @@ export function formHandle(formid, model, handler){
     submit.addEventListener('click', function(event){
         event.preventDefault();
         if(!isAccepted){
-            console.log('accepted');
+            //console.log('not accepted');
             return;
         }
 
         const formattedFormData = {acceptance: isAccepted, time: performance.now()}
         for (const [key, value] of Object.entries(model)){
-            let fieldValue = form[value] ? form[value].value : form[value];
+            let fieldValue = form[value] ? form[value].value : value;
             formattedFormData[key] = fieldValue
         }
         //postData(formattedFormData);
-       console.log(formattedFormData);
+       //console.log(formattedFormData);
        formPostData(formattedFormData, handler).then((data) => {
-            console.log(data);
+            //console.log(data);
             formFeedback(form, data);
         });
     });

@@ -15,7 +15,7 @@ export function alphaHandle(formId){
                 games.splice(games.indexOf(this.value), 1);
             }
             if(games.length < 2){
-                console.log('not maxed out');
+                //console.log('not maxed out');
                 formGames.classList.remove('maxed-out');
             } else {
                 formGames.classList.add('maxed-out');
@@ -28,6 +28,6 @@ export function alphaHandle(formId){
         games
         
     }
-    formHandle(formId, testModel, 'handle_alpha.php');
+    formHandle(formId, testModel, '/handle_alphatest.php');
     
 }

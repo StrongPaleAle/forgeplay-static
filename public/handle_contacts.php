@@ -62,6 +62,10 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
                 . "Messaggio:\n" . $sanitizedMessage;
   
         $to = 'alessio.falchi90@gmail.com';
+        
+        if (strpos($_SERVER['HTTP_HOST'], 'forgeplay.it') !== false) {
+            $to = 'info@forgeplay.it';
+        }
     
         $subject = 'Nuovo messaggio Forgeplay: ' . $sanitizedObject;
         

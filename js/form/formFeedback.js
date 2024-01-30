@@ -4,7 +4,7 @@ export function formFeedback(form, data){
 
     let formFeedback = form.querySelector('.form_feedback_template').content.cloneNode(true);
     let feedbackBox = formFeedback.querySelector('.feedback-box');
-    
+    console.log(data);
     formFeedback.querySelector('.form_feedback_message').innerHTML = data.message;
     if (data.success) {
         feedbackBox.classList.add('success');

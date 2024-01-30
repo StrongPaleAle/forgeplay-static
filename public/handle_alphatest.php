@@ -108,7 +108,7 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
         exit;
     } else {
         // check file existence
-        
+        $mail = false;
         foreach ($gamesArray as $game) {
             $file = $files[$game];
             if (!file_exists($file)){
@@ -118,11 +118,19 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
             $current .= $sanitizedEmail . ",\n";
 			file_put_contents($file, $current);
 			// return success message
-	        
+	        if ($game == 'tutam') {
+                $template_path = '/mail-templates/tutam-test.html';
+                sendEmail($sanitizedEmail, $template_path);
+                $mail = true;
+            } 
         }
 
         $result['success'] = true;
-        $result['message'] = 'Iscrizione effettuata con successo!';
+        if ($mail) {
+            $result['message'] = 'Iscrizione effettuata con successo! Ti abbiamo inviato una mail con le istruzioni per accedere al test';
+        } else {
+            $result['message'] = 'Iscrizione effettuata con successo!';
+        }
         echo json_encode($result);
         exit;
 		
@@ -131,5 +139,23 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
     }
     
 }
+function sendEmail($email, $template_path) {
+    $email_template = file_get_contents($template_path);
+  
 
+    $subject = 'Benvenuto nel test di Forgeplay';
+
+    $headers = array(
+        'MIME-Version' => '1.0',
+        'Content-type' => 'text/html; charset=UTF-8',
+        'From' => 'ForgePlay <noreply@' . $_SERVER['HTTP_HOST'] . '>',
+        'Reply-To' => 'ForgePlay <noreply@' . $_SERVER['HTTP_HOST'] . '>',
+        'X-Mailer' => 'PHP/' . phpversion()
+    );
+    
+    $headers = 'From: noreply@' . $_SERVER['HTTP_HOST'] ."\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+    $send_email = mail($email, $subject, $email_template, $headers);
+}
 ?>

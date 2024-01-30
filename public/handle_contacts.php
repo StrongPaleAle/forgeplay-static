@@ -3,7 +3,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 // check the honeypot
 $honeypot = $data['nickname'];
-$sanitizedHoney = filter_var($honeypot, FILTER_SANITIZE_STRING);
+$sanitizedHoney = htmlspecialchars($honeypot);
 
 if ($sanitizedHoney || $sanitizedHoney != '') {
 
@@ -24,22 +24,23 @@ if ($sanitizedHoney || $sanitizedHoney != '') {
     $message = $data['message'];
     $acceptance = $data['acceptance'];
 
-    $sanitizedName = filter_var($name, FILTER_SANITIZE_STRING);
+    $sanitizedName = htmlspecialchars($name);
     if (!$sanitizedName || $sanitizedName == '') {
         $result['errors'][] = 'Please enter a name';
     }
 
     $sanitizedEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
+    $sanitizedEmail = preg_replace('~[\r\n]+~', '', $sanitizedEmail);
     if (!$sanitizedEmail || $sanitizedEmail == '' || !filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
         $result['errors'][] = 'Please enter a valid email';
     }
 
-    $sanitizedObject = filter_var($object, FILTER_SANITIZE_STRING);
+    $sanitizedObject = htmlspecialchars($object);
     if (!$sanitizedObject || $sanitizedObject == '') {
         $result['errors'][] = 'Please enter an object';
     }
 
-    $sanitizedMessage = filter_var($message, FILTER_SANITIZE_STRING);
+    $sanitizedMessage = htmlspecialchars($message);
     if (!$sanitizedMessage || $sanitizedMessage == '') {
         $result['errors'][] = 'Please enter a message';
     }

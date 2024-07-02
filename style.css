@@ -726,7 +726,7 @@ section.cube{
 }
 
 #about .members{
-    padding: 18% 19% 5%;
+    padding: 8% 18% 4% 20%;
     gap: 3%;
     isolation: isolate;
 }
@@ -1092,6 +1092,14 @@ form .feedback-box.error{
 .middle-section{
     margin-top: 60lvh;
 }
+.team-glow{
+    animation: glow 2s ease  infinite;
+
+}
+.team-screens{
+    animation: screens 8s ease  infinite;
+
+}
 @keyframes pop {
     0% {
         opacity: 0;
@@ -1197,5 +1205,93 @@ form .feedback-box.error{
     }
     100% {
         transform: translateY(0);
+    }
+}
+@keyframes glow {
+    0% {
+        opacity: 1;
+    }
+    5%{
+        opacity: 0.5;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    18% {
+        opacity: 0.3;
+    }
+    32% {
+        opacity: 0.9;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    65% {
+        opacity: 0.7;
+    }
+    70% {
+        opacity: 0.3;
+    }
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes screens {
+    0% {
+        opacity: 1;
+    }
+    5%{
+        opacity: 0.8;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    18% {
+        opacity: 0.9;
+    }
+    32% {
+        opacity: 0.7;
+    }
+    40% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    60% {
+        opacity: 0.7;
+    }
+    65% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.8;
+    }
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
     }
 }

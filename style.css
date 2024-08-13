@@ -785,11 +785,14 @@ section.cube{
     @apply text-2xl uppercase font-bold mb-4 lg:text-5xl text-primary;
 }
 .dialog__info{
-    @apply text-lg mb-4 grid gap-2;
+    @apply lg:text-lg mb-4 grid gap-2;
     
 }
 .dialog__info-label{
     @apply font-bold text-primary;
+}
+.dialog__info-value{
+    @apply text-sm lg:text-lg;
 }
 
 @media (min-width: 640px){

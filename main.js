@@ -139,7 +139,7 @@ function mountDialogGallery(parent){
                     640: { autoWidth: false, perPage: 1, gap: '0rem', type: 'slide' },
                 },
             }  ).mount();
-
+            
             splide.on( 'inactive', function (Slide) {
                 // This will be executed.
                 Slide.slide.querySelectorAll('video').forEach(video => {
